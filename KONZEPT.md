@@ -135,7 +135,7 @@ Zwei Verpackungen, mehr nicht. 10 Stück kommen in eine 10er-Schachtel, 20 in zw
 | `quelle/` | Zeichen- und Render-Skripte (Python), damit Varianten und Clips jederzeit neu erzeugt werden können |
 | `img/pack/` | Verpackungs-Mockups und 3D-Flächen (`3d/e-*`, `3d/z-*`) |
 | `quelle/pack/` | Verpackungs-Skripte: Maße, Grafik, Mockups, Stanzkonturen, Export |
-| `audio/weihnacht.mp3` | Hintergrundmusik „Feierliche Zufahrt“, eigene Komposition, 40 s Schleife; Zitat „Macht hoch die Tür“ (Halle 1704, gemeinfrei). Quelle `quelle/weihnacht.py` |
+| `audio/weihnacht.mp3` | Hintergrundmusik „Feierliche Zufahrt“, eigene Komposition, 48 s Schleife (Fassung 2: dezenter, Chor führt, Celesta, leise Glöckchen); Zitat „Macht hoch die Tür“ (Halle 1704, gemeinfrei). Quelle `quelle/weihnacht.py` |
 
 ## 7. Nächste Schritte (Priorität)
 1. Spots heute Abend/morgen posten und Reaktionen messen, bevor Geld in Material geht.

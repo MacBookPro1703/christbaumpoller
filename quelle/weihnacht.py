@@ -1,16 +1,16 @@
 """Christbaumpoller – Hintergrundmusik „Feierliche Zufahrt“ (eigene Komposition, Ebbing Project 2026).
 Chor-Aah, Schlittenglöckchen, Bläser, Glockenspiel, Pauke. Zitat: „Macht hoch die Tür“ (Melodie Halle 1704, gemeinfrei),
-erste zwei Zeilen. Nahtlose Schleife: 16 Takte à 2,5 s = 40 s, Nachhall wird an den Anfang gefaltet."""
+erste zwei Zeilen. Nahtlose Schleife: 16 Takte à 3,0 s = 48 s. Fassung 2 (20.11.2026 23:40): dezenter, Chor führt, Celesta weich, keine Bläser/Pauke, Nachhall wird an den Anfang gefaltet."""
 import numpy as np, wave, sys
 from scipy.signal import fftconvolve
 
 SR = 44100
-BPM = 96
-BEAT = 60 / BPM            # 0,625 s
+BPM = 80
+BEAT = 60 / BPM            # 0,75 s
 BAR = 4 * BEAT             # 2,5 s
 BARS = 16
-LOOP = BARS * BAR          # 40 s
-TAIL = 4.0
+LOOP = BARS * BAR          # 48 s
+TAIL = 5.0
 N = int(SR * (LOOP + TAIL))
 L = np.zeros(N); R = np.zeros(N)
 rng = np.random.default_rng(7)
@@ -44,9 +44,9 @@ def env_adsr(n, a, d, s, rel, dur):
 def formant(f):
     """Vokal „a“: Formanten 800/1150/2900 Hz."""
     g = 0.0
-    for fc, bw, a in ((800, 0.18, 1.0), (1150, 0.16, 0.65), (2900, 0.12, 0.25)):
+    for fc, bw, a in ((700, 0.20, 1.0), (1050, 0.18, 0.55), (500, 0.22, 0.6), (2800, 0.12, 0.12)):
         g += a * np.exp(-((np.log(f / fc)) / bw) ** 2)
-    return 0.12 + g
+    return 0.08 + g
 
 
 def choir(note, dur, vel=1.0, voices=4):
@@ -60,11 +60,11 @@ def choir(note, dur, vel=1.0, voices=4):
         ph0 = rng.random() * 6
         f = f0 * det
         k = 1
-        while k * f < 5000:
-            amp = formant(k * f) / k ** 0.7
+        while k * f < 4000:
+            amp = formant(k * f) / k ** 0.9
             out += amp * np.sin(2 * np.pi * k * f * np.cumsum(vib) / SR + ph0 * k)
             k += 1
-    e = env_adsr(n, 0.45, 0.4, 0.85, 0.7, dur)
+    e = env_adsr(n, 0.7, 0.5, 0.9, 1.1, dur)
     return out * e * vel / voices * 0.09
 
 
@@ -88,9 +88,9 @@ def bell(note, vel=1.0, dec=1.3):
     f = hz(note)
     n = int(SR * 3.0)
     t = np.arange(n) / SR
-    s = (np.sin(2 * np.pi * f * t) + 0.4 * np.sin(2 * np.pi * f * 2.76 * t) * np.exp(-t * 4)
-         + 0.25 * np.sin(2 * np.pi * f * 5.4 * t) * np.exp(-t * 7) + 0.1 * np.sin(2 * np.pi * f * 8.9 * t) * np.exp(-t * 12))
-    return s * np.exp(-t * dec) * np.minimum(1, t / 0.002) * vel * 0.12
+    s = (np.sin(2 * np.pi * f * t) + 0.18 * np.sin(2 * np.pi * f * 2.0 * t) * np.exp(-t * 5)
+         + 0.06 * np.sin(2 * np.pi * f * 3.0 * t) * np.exp(-t * 9))
+    return s * np.exp(-t * dec) * np.minimum(1, t / 0.008) * vel * 0.07
 
 
 def sleigh(vel=1.0):
@@ -98,12 +98,12 @@ def sleigh(vel=1.0):
     t = np.arange(n) / SR
     s = np.zeros(n)
     for _ in range(9):
-        f = rng.uniform(4800, 9800)
+        f = rng.uniform(3500, 7000)
         d = rng.uniform(0.002, 0.03)
         s += np.sin(2 * np.pi * f * t + rng.random() * 6) * np.exp(-np.maximum(0, t - d) * rng.uniform(25, 45)) * (t >= d)
     noise = rng.normal(0, 1, n)
     noise = np.diff(np.concatenate([[0], noise])) * np.exp(-t * 60)
-    return (s * 0.5 + noise * 0.25) * vel * 0.05
+    return (s * 0.5 + noise * 0.06) * vel * 0.018
 
 
 def bass(note, dur, vel=1.0):
@@ -111,7 +111,7 @@ def bass(note, dur, vel=1.0):
     n = int(SR * (dur + 0.4))
     t = np.arange(n) / SR
     s = np.sin(2 * np.pi * f * t) + 0.3 * np.sin(4 * np.pi * f * t) * np.exp(-t * 3)
-    return s * np.exp(-t * 1.6) * np.minimum(1, t / 0.01) * vel * 0.20
+    return s * np.exp(-t * 1.2) * np.minimum(1, t / 0.03) * vel * 0.14
 
 
 def timpani(note, vel=1.0):
@@ -151,39 +151,36 @@ for b, ch in enumerate(CH):
     if b >= 2:
         add(bass(BS[ch], BEAT * 1.8), t0, 0.0)
         add(bass(BS[ch], BEAT * 1.8, 0.8), t0 + 2 * BEAT, 0.0)
-    if b in (0, 4, 8, 12, 15):
-        add(timpani(BS[ch][:-1] + "2", 0.9 if b else 0.6), t0, 0.1)
+
     # Schlittenglöckchen: ab Takt 2 Achtel, ab Takt 5 mit Sechzehntel-Wirbeln
-    if b >= 1:
-        steps = 8 if b < 4 else 16
+    if 2 <= b <= 14:
+        steps = 4 if b < 4 else 8
         for s in range(steps):
-            acc = 1.0 if s % (steps // 4) == 0 else 0.55
-            if steps == 16 and s % 4 == 3 and rng.random() < 0.5:
-                continue
-            add(sleigh(acc * (0.6 if b < 4 else 0.9)), t0 + s * BAR / steps + rng.normal(0, 0.004), pan=0.45)
+            acc = 1.0 if s % (steps // 4) == 0 else 0.5
+            add(sleigh(acc * (0.5 if b < 4 else 0.8)), t0 + s * BAR / steps + rng.normal(0, 0.006), pan=0.5)
     # Glockenspiel-Funkeln im Intro und am Ende
     if b < 4 or b >= 12:
         arp = VO[ch][1:] + [VO[ch][-1][:-1] + str(int(VO[ch][-1][-1]) + 1)]
         for i, nt in enumerate(arp):
             o = nt[:-1] + str(int(nt[-1]) + 1)
-            add(bell(o, 0.7), t0 + BEAT * 0.5 * (2 * i + (1 if b % 2 else 0)), pan=-0.4)
+            add(bell(o, 0.55, dec=0.9), t0 + BEAT * 0.5 * (2 * i + (1 if b % 2 else 0)), pan=-0.4)
 for b, notes in MEL.items():
     for nt, st, du in notes:
-        add(brass(nt, du * BEAT * 0.95, 1.0), b * BAR + st * BEAT, pan=-0.15)
-        add(brass(nt[:-1] + str(int(nt[-1]) - 1), du * BEAT * 0.95, 0.45), b * BAR + st * BEAT, pan=0.2)
+        add(choir(nt, du * BEAT * 1.02, 1.15, voices=5), b * BAR + st * BEAT, pan=-0.1)
+        add(bell(nt[:-1] + str(int(nt[-1]) + 1), 0.25, dec=1.1), b * BAR + st * BEAT, pan=0.3)
 # Zitat: Takt 13–16 (Index 12–15), Glockenspiel + Chor-Unisono, darunter leise Bläser
 for nt, st, du in ZITAT:
     t = 12 * BAR + st * BEAT
-    add(bell(nt, 1.0, dec=1.0), t, pan=0.1)
-    add(choir(nt[:-1] + str(int(nt[-1]) - 1), du * BEAT * 0.95, 0.9, voices=3), t, pan=0.0)
-    add(brass(nt[:-1] + str(int(nt[-1]) - 1), du * BEAT * 0.9, 0.35), t, pan=-0.2)
+    add(bell(nt, 0.6, dec=0.9), t, pan=0.1)
+    add(choir(nt, du * BEAT * 1.02, 1.1, voices=5), t, pan=0.0)
+    add(choir(nt[:-1] + str(int(nt[-1]) - 1), du * BEAT * 1.02, 0.6, voices=3), t, pan=-0.2)
 
 # ---------------- Hall (Faltung mit synthetischer Raumantwort) ----------------
-rt = np.arange(int(SR * 2.6)) / SR
-irL = rng.normal(0, 1, len(rt)) * np.exp(-rt / 0.55)
-irR = rng.normal(0, 1, len(rt)) * np.exp(-rt / 0.55)
+rt = np.arange(int(SR * 3.5)) / SR
+irL = rng.normal(0, 1, len(rt)) * np.exp(-rt / 0.85)
+irR = rng.normal(0, 1, len(rt)) * np.exp(-rt / 0.85)
 irL[:int(0.012 * SR)] = 0; irR[:int(0.017 * SR)] = 0
-wet = 0.20
+wet = 0.38
 L2 = L + wet * fftconvolve(L, irL)[:N] / np.sqrt(np.sum(irL ** 2))
 R2 = R + wet * fftconvolve(R, irR)[:N] / np.sqrt(np.sum(irR ** 2))
 # Schleife: alles nach 40 s auf den Anfang falten
@@ -191,9 +188,12 @@ n = int(LOOP * SR)
 outL, outR = L2[:n].copy(), R2[:n].copy()
 outL[: N - n] += L2[n:]
 outR[: N - n] += R2[n:]
-# sanfte Kompression + Normierung
+# sanfter Tiefpass (≈6 kHz) gegen Härte, dann weiche Normierung
+from scipy.signal import butter, sosfiltfilt
+sos = butter(2, 6000, fs=SR, output='sos')
+outL, outR = sosfiltfilt(sos, outL), sosfiltfilt(sos, outR)
 st = np.stack([outL, outR], 1)
-st = np.tanh(st / np.max(np.abs(st)) * 1.6) / np.tanh(1.6) * 0.82
+st = np.tanh(st / np.max(np.abs(st)) * 1.2) / np.tanh(1.2) * 0.78
 out = sys.argv[1] if len(sys.argv) > 1 else "/home/claude/cbp/render/weihnacht.wav"
 with wave.open(out, "wb") as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
