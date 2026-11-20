@@ -563,7 +563,11 @@ def block(variant="gold-glanz", size=420, seed=1, hang=True, text=None):
         d.ellipse([hx - 24, ring_y - 54, hx + 24, ring_y + 4], outline=(214, 182, 120), width=10)
     out = Image.new("RGBA", (W, CH), (0, 0, 0, 0))
     if hang:
-        ImageDraw.Draw(out).line([(W / 2, 0), (W / 2, ring_y - 50)], fill=(215, 190, 140, 255), width=7)
+        od = ImageDraw.Draw(out)
+        # Satinband als Schlaufe: zwei Stränge von der Öse nach oben, oben verknotet
+        for dx, col in ((-11, (196, 158, 78, 255)), (11, (226, 192, 116, 255))):
+            od.polygon([(W / 2 + dx - 6, ring_y - 48), (W / 2 + dx + 6, ring_y - 48), (W / 2 + 5, 10), (W / 2 - 5, 10)], fill=col)
+        od.ellipse([W / 2 - 13, 0, W / 2 + 13, 24], fill=(200, 162, 82, 255))
     out.alpha_composite(im, (int(W / 2 - hx), 0))
     if not hang:
         out = out.crop(out.getbbox())
