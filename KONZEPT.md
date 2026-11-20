@@ -74,7 +74,7 @@ Ein Preis für alle Farben, Oberflächen, Größen und mit/ohne Schnee, inkl. Mw
 | ab 10 | 10er-Pack **19,95 €** | 2,00 € | 33 % |
 | ab 20 | 20er-Pack **29,99 €** | 1,50 € | 50 % |
 | ab 30 | 30er-Pack **39,95 €** | 1,33 € | 55 % |
-| ab 100 | 100 Stück **149,99 €** inkl. **persönlicher Gravur auf einem Poller** (Vorgabe Jörg 22:07) | 1,50 € | 50 % |
+| ab 100 | 100 Stück **149,99 €** inkl. **persönlicher Gravur oder eigenem Schriftzug auf einem Poller** (Vorgabe Jörg 22:07) | 1,50 € | 50 % |
 
 Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück: einzeln 2,51 €, 10er 1,68 €, 20er 1,26 €, 30er 1,12 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
 

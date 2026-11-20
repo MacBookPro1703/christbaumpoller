@@ -238,7 +238,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
       <div class="set"><div class="row"><img src="img/rot-glanz.webp" alt=""><img src="img/gold-matt.webp" alt=""><img src="img/silber-matt-schnee.webp" alt=""></div>
         <h3>Komplette Zufahrtssicherung</h3><p>30 Stück · 55 % gespart</p><div class="p">39,95 €</div><p>statt 89,70 € · 1,33 € pro Stück</p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
     </div>
-    <div class="set" style="margin-top:24px;text-align:center"><h3>Ab 100 Stück: Ihre persönliche Gravur gratis</h3><p>Für Firmen, Vereine, Weihnachtsfeiern und Stadtverwaltungen mit Humor. Ab 100 Stück gravieren wir einen Poller nach Ihrem Wunsch, zum Beispiel mit Ihrem Namen, Ihrer Stadt oder Ihrem eigenen Hashtag. Die Gravur ist im 100er-Preis enthalten.</p><div class="p">100 Stück: 149,99 €</div><p>1,50 € pro Stück inkl. persönlicher Gravur</p></div>
+    <div class="set" style="margin-top:24px;text-align:center"><h3>Ab 100 Stück: Ihre persönliche Gravur oder Ihr eigener Schriftzug inklusive</h3><p>Für Firmen, Vereine, Weihnachtsfeiern und Stadtverwaltungen mit Humor. Ab 100 Stück bekommt ein Poller Ihre persönliche Gravur oder Ihren eigenen Schriftzug, zum Beispiel Ihren Namen, Ihre Stadt oder Ihren eigenen Hashtag. Im Preis enthalten.</p><div class="p">100 Stück: 149,99 €</div><p>1,50 € pro Stück, persönliche Gravur oder Schriftzug inklusive</p></div>
   </div>
 </section>
 
@@ -292,7 +292,7 @@ r();addEventListener('resize',r);
 // Konfigurator
 const NAME={gold:'Gold',silber:'Silber',rot:'Rot',glanz:'glänzend',matt:'matt'};
 const EP=2.99;
-// Packpreise: 10 = 19,95 € · 20 = 29,99 € · 30 = 39,95 € · 100 = 149,99 € inkl. Gravur (Stückpreis gilt für die Gesamtmenge)
+// Packpreise: 10 = 19,95 € · 20 = 29,99 € · 30 = 39,95 € · 100 = 149,99 € inkl. Gravur oder eigenem Schriftzug (Stückpreis gilt für die Gesamtmenge)
 function stp(n){return n>=100?149.99/100:n>=30?39.95/30:n>=20?29.99/20:n>=10?19.95/10:EP}
 function rabatt(n){return 1-stp(n)/EP}
 const W={S:250,M:320,L:390};
@@ -309,7 +309,7 @@ function upd(){
   document.getElementById('vname').textContent=label();
   document.getElementById('price').firstChild.textContent=eur(summe(n));
   const r=rabatt(n);
-  document.getElementById('pinfo').textContent=(n>1?n+' Stück · ':'')+(r?Math.round(r*100)+' % Rabatt · ':'')+'Stückpreis '+eur(stp(n))+(n>=100?' · Gravur gratis':'')+' · inkl. MwSt., zzgl. Versand';
+  document.getElementById('pinfo').textContent=(n>1?n+' Stück · ':'')+(r?Math.round(r*100)+' % Rabatt · ':'')+'Stückpreis '+eur(stp(n))+(n>=100?' · persönliche Gravur oder Schriftzug inklusive':'')+' · inkl. MwSt., zzgl. Versand';
 }
 document.querySelectorAll('.chips[data-k]').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;
   g.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');st[g.dataset.k]=b.dataset.v;upd()}));
@@ -331,14 +331,14 @@ const liste=[];
 function text(){const n=liste.reduce((s,[,q])=>s+q,0),r=rabatt(n);
   return {n,r,zeilen:liste.map(([a,q])=>q+' × '+a),sum:summe(n)}}
 function add(t,q){liste.push([t,q]);const x=text(),w=document.getElementById('wunsch');
-  w.innerHTML=x.zeilen.map(z=>'• '+z).join('<br>')+'<br><b>'+x.n+' Stück'+(x.r?' · '+Math.round(x.r*100)+' % gespart':'')+' · Summe '+eur(x.sum)+'</b>'+(x.n>=100?'<br>Persönliche Gravur auf einem Poller: gratis – Wunschtext bitte unten in die Nachricht.':'');
+  w.innerHTML=x.zeilen.map(z=>'• '+z).join('<br>')+'<br><b>'+x.n+' Stück'+(x.r?' · '+Math.round(x.r*100)+' % gespart':'')+' · Summe '+eur(x.sum)+'</b>'+(x.n>=100?'<br>Persönliche Gravur oder eigener Schriftzug auf einem Poller: inklusive – Wunschtext bitte unten in die Nachricht.':'');
   const t2=document.getElementById('toast');t2.classList.add('show');setTimeout(()=>t2.classList.remove('show'),1600)}
 document.getElementById('addBtn').onclick=()=>add('Christbaumpoller '+label(),Math.max(1,parseInt(qty.value)||1));
 document.querySelectorAll('.set-add').forEach(b=>b.onclick=()=>add('Christbaumpoller gemischt (Farben/Größen bitte in der Nachricht)',parseInt(b.dataset.n)));
 function sendOrder(e){e.preventDefault();
   if(!liste.length){alert('Der Wunschzettel ist noch leer.');return false}
   const x=text();
-  const body='Wunschzettel Christbaumpoller\n\n'+x.zeilen.map(z=>'- '+z).join('\n')+'\n\n'+x.n+' Stück'+(x.r?', '+Math.round(x.r*100)+' % gespart':'')+'\nSumme: '+eur(x.sum)+(x.n>=100?'\nGravur gratis (ab 100 Stück)':'')+'\n\nName: '+document.getElementById('oname').value+'\nOrt: '+document.getElementById('oort').value+'\n\n'+document.getElementById('omsg').value;
+  const body='Wunschzettel Christbaumpoller\n\n'+x.zeilen.map(z=>'- '+z).join('\n')+'\n\n'+x.n+' Stück'+(x.r?', '+Math.round(x.r*100)+' % gespart':'')+'\nSumme: '+eur(x.sum)+(x.n>=100?'\nPersönliche Gravur oder eigener Schriftzug inklusive (ab 100 Stück)':'')+'\n\nName: '+document.getElementById('oname').value+'\nOrt: '+document.getElementById('oort').value+'\n\n'+document.getElementById('omsg').value;
   location.href='mailto:info@ebbing-project.de?subject='+encodeURIComponent('Wunschzettel Christbaumpoller')+'&body='+encodeURIComponent(body);return false}
 </script>
 </body>
