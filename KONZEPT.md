@@ -70,13 +70,13 @@ Preise inkl. MwSt. je Größe. Alle Poller eines Packs sind gleich (Größe, Far
 
 | Größe | einzeln | 10er-Pack | 20er-Pack | 30er-Pack | 100 Stück inkl. persönlicher Gravur oder eigenem Schriftzug |
 |---|---|---|---|---|---|
-| S (5 cm) | 2,99 € | 24,99 € | 34,99 € | 39,99 € | 149,99 € |
-| M (7 cm) | 3,49 € | 28,99 € | 40,99 € | 46,99 € | 174,99 € |
-| L (9 cm) | 3,99 € | 32,99 € | 46,99 € | 53,99 € | 199,99 € |
+| S (5 cm) | 2,99 € | 24,99 € | 34,99 € | 44,99 € | 149,99 € |
+| M (7 cm) | 3,49 € | 28,99 € | 40,99 € | 52,99 € | 174,99 € |
+| L (9 cm) | 3,99 € | 32,99 € | 46,99 € | 59,99 € | 199,99 € |
 
-S-Preise: Vorgabe Jörg 22:38. M und L: gleiche Preislogik wie S, auf ,99 gerundet, von Jörg freigegeben. Zwischen den Packgrößen gilt der Stückpreis der nächstkleineren Stufe.
+S-Preise: Vorgabe Jörg 22:38; **30er S auf 44,99 € angehoben (Jörg 21.11.2026 00:07)**, M 30er 52,99 € und L 30er 59,99 € nach derselben Logik (M ≈ S × 7/6, L ≈ S × 4/3, auf ,99 gerundet). M und L: gleiche Preislogik wie S, von Jörg freigegeben. Zwischen den Packgrößen gilt der Stückpreis der nächstkleineren Stufe.
 
-Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück: einzeln 2,51 €, 10er 1,68 €, 20er 1,26 €, 30er 1,12 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
+Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück (Größe S, ohne 19 % MwSt.): einzeln 2,51 €, 10er 2,10 €, 20er 1,47 €, 30er 1,26 €, 100 Stück 1,26 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
 
 ## 4. Vertrieb
 
