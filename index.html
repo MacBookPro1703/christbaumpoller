@@ -150,6 +150,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .v3 .shadow{position:absolute;left:50%;top:50%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);transform-style:preserve-3d}
 .v3hint{text-align:center;color:var(--mut);font-size:14px;margin-top:6px}
 @media(max-width:860px){.v3{height:400px}}
+
+/* Musik-Knopf */
+.mus{position:fixed;left:18px;bottom:18px;z-index:25;display:flex;align-items:center;gap:10px;background:rgba(21,23,26,.86);backdrop-filter:blur(8px);border:1px solid rgba(176,141,87,.45);color:var(--or2);border-radius:999px;padding:9px 16px 9px 12px;font:600 14px "Source Sans 3",sans-serif;cursor:pointer}
+.mus .ic{width:22px;height:22px;display:grid;place-items:center;font-size:17px}
+.mus.on .ic{animation:mus 1.6s ease-in-out infinite}
+@keyframes mus{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
 </style>
 </head>
 <body>
@@ -347,6 +353,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
   <div><b style="color:var(--tx)">Ebbing Project GmbH</b><br>Marienthaler Str. 44a · 46348 Raesfeld<br>info@ebbing-project.de</div>
   <div>Christbaumpoller ist eine Satire-Kollektion von Ebbing Project.<br>Alle Abbildungen sind Gestaltungsentwürfe. <a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">Widerruf</a></div>
 </div></footer>
+<button class="mus" id="mus" aria-label="Musik an oder aus"><span class="ic">🔔</span><span id="musT">Musik an</span></button>
 <div class="toast" id="toast">Auf dem Wunschzettel ✓</div>
 
 <script>
@@ -459,6 +466,31 @@ document.querySelectorAll('.pk .tog .chip').forEach(b=>b.onclick=()=>{b.parentNo
   addEventListener('resize',build);
   (function spin(){if(auto){ry+=0.12;draw()}requestAnimationFrame(spin)})();
   build();
+})();
+
+// Hintergrundmusik „Feierliche Zufahrt“ (eigene Komposition) – Endlosschleife ohne Lücke (Web Audio), startet mit der ersten Berührung
+(function(){
+  const btn=document.getElementById('mus'),txt=document.getElementById('musT');
+  let ctx=null,buf=null,src=null,gain=null,on=false,want=true,loading=null;
+  try{if(localStorage.getItem('cbp-musik')==='aus')want=false}catch(e){}
+  function ui(){btn.classList.toggle('on',on);txt.textContent=on?'Musik aus':'Musik an'}
+  async function ensure(){if(buf)return;if(!loading)loading=(async()=>{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+    const r=await fetch('audio/weihnacht.mp3');const a=await r.arrayBuffer();buf=await new Promise((ok,no)=>ctx.decodeAudioData(a,ok,no));
+    gain=ctx.createGain();gain.gain.value=0;gain.connect(ctx.destination)})();await loading}
+  async function start(){try{await ensure();if(ctx.state==='suspended')await ctx.resume();if(on)return;
+    src=ctx.createBufferSource();src.buffer=buf;src.loop=true;src.loopStart=0;src.loopEnd=Math.min(40,buf.duration);src.connect(gain);src.start();
+    gain.gain.cancelScheduledValues(ctx.currentTime);gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(.55,ctx.currentTime+2.5);on=true;ui()}catch(e){}}
+  function stop(){if(!on)return;const s=src;gain.gain.cancelScheduledValues(ctx.currentTime);gain.gain.setValueAtTime(gain.gain.value,ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0,ctx.currentTime+.6);setTimeout(()=>{try{s.stop()}catch(e){}},700);on=false;ui()}
+  btn.addEventListener('click',e=>{e.stopPropagation();want=!on;try{localStorage.setItem('cbp-musik',want?'an':'aus')}catch(err){}want?start():stop()});
+  const first=e=>{if(e&&e.target&&btn.contains(e.target))return;['pointerdown','keydown','touchend'].forEach(ev=>removeEventListener(ev,first,true));if(want)start()};
+  ['pointerdown','keydown','touchend'].forEach(ev=>addEventListener(ev,first,true));
+  if(want){ensure().then(()=>{if(ctx.state==='running')start()}).catch(()=>{})}
+  // Während ein Spot läuft, pausiert die Musik
+  document.querySelectorAll('video').forEach(v=>{v.addEventListener('play',()=>{if(on){v._m=1;stop()}});
+    v.addEventListener('pause',()=>{if(v._m&&want){v._m=0;start()}})});
+  document.addEventListener('visibilitychange',()=>{if(!ctx)return;document.hidden?ctx.suspend():(on&&ctx.resume())});
+  ui();
 })();
 </script>
 </body>
