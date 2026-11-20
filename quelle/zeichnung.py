@@ -171,7 +171,7 @@ def sheet(pdf, size):
         yy -= 4.0 + 2.9 * v.count("\n")
 
     # ---------- Schriftfeld ----------
-    tb = [("Project", "Christbaumpoller"), ("Part", f"Ornament size {size}"), ("Material", "polyresin or ABS/PS (see RFQ)"),
+    tb = [("Project", "Christbaumpoller"), ("Part", f"Ornament size {size}"), ("Material", "polyresin / rigid PU foam / ABS-PS"),
           ("Units / scale", "mm · 1:1 on A4"), ("Rev / date", "A · 20.11.2026"), ("Customer", "Ebbing Project GmbH, 46348 Raesfeld, Germany")]
     ax.add_patch(Rectangle((204, 12), 81, 27, fill=False, ec=INK, lw=0.6))
     for i, (k, v) in enumerate(tb):
@@ -252,11 +252,112 @@ def overview(pdf):
     plt.close(fig)
 
 
+def foam_sheet(pdf):
+    s = SIZES["M"]; L, H, D = s["L"], s["H"], s["D"]
+    fig = plt.figure(figsize=(297 / 25.4, 210 / 25.4))
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, 297); ax.set_ylim(0, 210); ax.set_aspect("equal"); ax.axis("off")
+    ax.add_patch(Rectangle((8, 8), 281, 194, fill=False, lw=0.8, ec=INK))
+    ax.text(14, 196, "CHRISTBAUMPOLLER – Option C: rigid PU foam, coated · manufacturing requirements", fontsize=12.5, weight="bold", color=INK, va="top")
+    ax.text(14, 189, "Applies to sizes S, M and L (size M shown, scale 1:1). Outer dimensions on sheets S/M/L are FINISHED dimensions incl. coating.",
+            fontsize=7.3, color=HID, va="top")
+    # Schnitt A-A durch die Öse
+    fx, fy = 22, 112
+    poly = front_poly(s, fx, fy)
+    ax.add_patch(Polygon(poly, closed=True, fc="#efe3c8", ec=INK, lw=0.9, hatch="....", zorder=1))
+    ax.add_patch(Polygon(poly, closed=True, fill=False, ec="#b84a2a", lw=2.2, zorder=2))   # Beschichtung (überhöht)
+    ex = fx + L / 2
+    # Einsatz mit Widerhaken
+    ax.add_patch(Rectangle((ex - 1.5, fy + H - 10), 3, 10, fc="#c9a24a", ec=INK, lw=0.5, zorder=3))
+    for yb in (fy + H - 8.5, fy + H - 5.5, fy + H - 2.5):
+        ax.plot([ex - 1.5, ex - 2.6, ex - 1.5], [yb, yb - 0.8, yb - 1.6], color=INK, lw=0.5, zorder=4)
+        ax.plot([ex + 1.5, ex + 2.6, ex + 1.5], [yb, yb - 0.8, yb - 1.6], color=INK, lw=0.5, zorder=4)
+    ax.add_patch(Rectangle((ex - 0.6, fy + H), 1.2, 2, fc=GOLD, ec=INK, lw=0.4, zorder=3))
+    ax.add_patch(Circle((ex, fy + H + 2 + s["eo"] / 2), s["eo"] / 2, fill=False, ec=GOLD, lw=2.2, zorder=3))
+    # Trennebene + Anguss/Entlüftung
+    ax.plot([fx - 6, fx + L + 6], [fy, fy], ls=(0, (6, 2, 1, 2)), color="#7a3fa0", lw=0.9)
+    ax.text(fx + L + 7, fy, "parting line\n(underside)", fontsize=6, color="#7a3fa0", va="center")
+    mx = fx + s["a"] + s["w"] + s["m"] / 2
+    ax.annotate("pour hole Ø3 in underside\nof middle foot (hidden)", xy=(mx, fy), xytext=(mx + 14, fy - 14), fontsize=6, color=DIM, ha="center",
+                arrowprops=dict(arrowstyle="->", color=DIM, lw=0.5))
+    ax.annotate("2 vents Ø1 in underside\nof outer feet", xy=(fx + s["a"] / 2, fy), xytext=(fx - 4, fy - 22), fontsize=6, color=DIM, ha="left",
+                arrowprops=dict(arrowstyle="->", color=DIM, lw=0.5))
+    ax.annotate("brass eyelet insert, barbed shank\nØ3 × 10 mm, placed in mould\nbefore pouring (moulded-in)", xy=(ex + 1.6, fy + H - 6),
+                xytext=(fx + L + 7, fy + H - 4), fontsize=6, color=DIM, va="center", arrowprops=dict(arrowstyle="->", color=DIM, lw=0.5))
+    ax.annotate("coating (shown thicker)", xy=(fx + L, fy + H * 0.55), xytext=(fx + L + 7, fy + H * 0.55 - 7), fontsize=6, color="#b84a2a", va="center",
+                arrowprops=dict(arrowstyle="->", color="#b84a2a", lw=0.5))
+    ax.text(fx, fy + H + 12, "SECTION A–A through eyelet (size M)", fontsize=7.5, weight="bold", color=INK)
+    ax.text(fx + 3, fy + H / 2 + 1, "rigid PU foam core\n250–350 kg/m³", fontsize=6.5, color=INK, va="center", zorder=5,
+            bbox=dict(boxstyle="round,pad=0.4", fc="white", ec="none", alpha=0.9))
+    dim_h(ax, fx, fx + L, fy - 34, fy, f"{L} finished", above=False)
+    # Schichtaufbau
+    lx, ly = 22, 34
+    ax.text(lx, ly + 30, "COATING BUILD-UP (dry film)", fontsize=7.5, weight="bold", color=INK)
+    layers = [("rigid PU foam core, closed skin", "#efe3c8", 10), ("sealer + filler primer, 2 coats, 40–60 µm", "#d9d4c7", 6),
+              ("base coat gold / silver / red, 20–40 µm", "#c9a24a", 5), ("pad print \"#wirschaffendas\"", RED, 2.5),
+              ("clear coat matte or gloss, 20–40 µm", "#f4f4f4", 4)]
+    y = ly
+    for name, col, h in layers:
+        ax.add_patch(Rectangle((lx, y), 40, h, fc=col, ec=INK, lw=0.4))
+        ax.text(lx + 43, y + h / 2, name, fontsize=6.2, va="center", color=INK)
+        y += h
+    ax.text(lx, ly - 4, "Total coating 80–150 µm. Foam part = finished dimension − 0.1 mm per side.", fontsize=6.2, color=HID, va="top")
+    # Prozess
+    px = 168
+    ax.text(px, 172, "PROCESS STEPS", fontsize=8, weight="bold", color=INK)
+    steps = [
+        "Master model from our STEP file (CNC or 3D print), approval by photo",
+        "2-part silicone mould, parting line on underside; pour hole + vents hidden in feet",
+        "Insert brass eyelet (barbed shank) into mould before pouring",
+        "Pour 2K rigid PU foam, density 250–350 kg/m³; demould after full cure",
+        "Trim flash, sand parting line; reject parts with voids > 1 mm",
+        "Seal + filler primer, 2 coats; sand between coats for gloss version",
+        "Base coat: gold / silver / red metallic, or matte version",
+        "Pad print \"#wirschaffendas\" (red on gold/silver, cream white on red)",
+        "Clear coat matte or gloss; snow variant: white texture paste + glitter on top",
+        "Tie gold cord / ribbon loop, final QC, polybag + header card",
+    ]
+    y = 165
+    for i, t in enumerate(steps):
+        ax.add_patch(Circle((px + 2.2, y - 1.3), 2.2, fc="#B08D57", ec="none"))
+        ax.text(px + 2.2, y - 1.3, str(i + 1), fontsize=6, color="white", ha="center", va="center", weight="bold")
+        ax.text(px + 6.5, y, t, fontsize=6.1, color=INK, va="top")
+        y -= 7.2
+    # Prüfungen
+    qy = 88
+    ax.text(px, qy, "QUALITY CHECKS (per batch, results with each shipment)", fontsize=8, weight="bold", color=INK)
+    qc = [("Weight", "finished M 8–12 g (S 4–6 g, L 15–22 g), ± 1 g"),
+          ("Eyelet pull test", "≥ 1 kg for 10 s, no movement (5 pcs / batch)"),
+          ("Coating adhesion", "cross-cut test ISO 2409, class ≤ 1"),
+          ("Drop test", "1.2 m onto hard floor: no chipping, no cracks"),
+          ("Dimensions", "± 0.5 mm, forklift pockets ± 0.3 mm"),
+          ("Surface", "no visible pinholes > 0.5 mm, no sink marks"),
+          ("Colour", "vs. approved physical sample"),
+          ("Materials", "lead-free paint, REACH; MDI-based PU fully cured,\nno odour on delivery")]
+    y = qy - 6
+    for k, v in qc:
+        ax.text(px, y, k, fontsize=6.1, weight="bold", color=INK, va="top")
+        ax.text(px + 30, y, v, fontsize=6.1, color=INK, va="top")
+        y -= 5.6 + 3.0 * v.count("\n")
+    # Schriftfeld
+    tb = [("Project", "Christbaumpoller"), ("Part", "Option C – rigid PU foam"), ("Units / scale", "mm · 1:1 on A4"),
+          ("Rev / date", "A · 20.11.2026"), ("Customer", "Ebbing Project GmbH, 46348 Raesfeld, Germany")]
+    ax.add_patch(Rectangle((204, 12), 81, 23, fill=False, ec=INK, lw=0.6))
+    for i, (k, v) in enumerate(tb):
+        yy = 32 - i * 4.2
+        ax.text(206, yy, k, fontsize=5.8, color=HID, va="center")
+        ax.text(225, yy, v, fontsize=6.2, color=INK, va="center", weight="bold" if i < 2 else "normal")
+    check(fig, ax, "foam")
+    pdf.savefig(fig)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else "/home/claude/cbp/save/Christbaumpoller_Technische-Zeichnungen.pdf"
     with PdfPages(out) as pdf:
         overview(pdf)
         for sz in ("S", "M", "L"):
             sheet(pdf, sz)
+        foam_sheet(pdf)
     print("\n".join(PROBLEMS) if PROBLEMS else "no layout problems")
     print("ok", out)
