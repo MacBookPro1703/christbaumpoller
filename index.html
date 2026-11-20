@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christbaumpoller – Ein Stück Sicherheitsgefühl für zu Hause · Ebbing Project</title>
+<meta name="description" content="Christbaumpoller: der Weihnachtsbaum-Anhänger in Form des Weihnachtsmarkt-Sperrblocks. Gold, Silber, Rot – glänzend oder matt, mit oder ohne Schnee. #wirschaffendas">
+<meta property="og:title" content="Christbaumpoller – Ein Stück Sicherheitsgefühl für zu Hause">
+<meta property="og:description" content="Was uns draußen schützt, ist längst Tradition. Jetzt auch für Ihren Baum.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.png">
+<style>
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-900-normal.woff2) format("woff2");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-600-normal.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Lora";src:url(fonts/lora-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Lora";src:url(fonts/lora-latin-500-italic.woff2) format("woff2");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Caveat Brush";src:url(fonts/caveat-brush-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+</style>
+<style>
+:root{--bg:#1B1E22;--bg2:#15171a;--card:#24272c;--or:#B08D57;--or2:#d8b77e;--tx:#F7F5F1;--mut:#9FAAB0;--cream:#E8E6E1;--rot:#b81c26;--night:#0d1530}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;font-size:18px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--or2)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Archivo,"Segoe UI",sans-serif;letter-spacing:-.01em;line-height:1.1}
+.serif{font-family:Lora,Georgia,serif;font-style:italic;font-weight:500}
+.eyebrow{font-family:Archivo,sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--or)}
+/* Kopfzeile */
+header.top{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(21,23,26,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(176,141,87,.18)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tx);font-family:Archivo;font-weight:700}
+.brand img{width:34px;height:34px;border-radius:4px}
+nav a{color:var(--cream);text-decoration:none;margin-left:22px;font-weight:600;font-size:15px}
+nav a:hover{color:var(--or2)}
+nav .cta{background:var(--or);color:#1B1E22;padding:8px 16px;border-radius:999px}
+@media(max-width:760px){nav a:not(.cta){display:none}}
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;
+  background:radial-gradient(ellipse at 70% 40%,rgba(176,141,87,.28),transparent 55%),linear-gradient(180deg,var(--night) 0%,#1c1a2a 55%,var(--bg) 100%)}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:90px;padding-bottom:60px}
+.hero h1{font-size:clamp(44px,7vw,92px);font-weight:900}
+.hero .slogan{font-size:clamp(22px,2.6vw,32px);color:var(--or2);margin:18px 0 26px}
+.hero p.lead{color:var(--cream);max-width:34em}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:17px;border:0;cursor:pointer;font-family:inherit}
+.btn.gold{background:linear-gradient(135deg,#e3c47e,#B08D57);color:#1B1E22;box-shadow:0 8px 30px rgba(176,141,87,.35)}
+.btn.line{border:1.5px solid var(--or);color:var(--or2);background:transparent}
+.btn:hover{transform:translateY(-1px)}
+.mobile{position:relative;height:520px}
+.hang{position:absolute;top:-60px;transform-origin:50% 0;animation:swing 4.2s ease-in-out infinite}
+.hang::before{content:"";position:absolute;left:50%;top:0;width:2px;height:var(--l,120px);background:#d7be8c;transform:translateX(-1px)}
+.hang img{margin-top:var(--l,120px);width:var(--w,230px);filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
+@keyframes swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.mobile{height:330px;order:-1}.mobile .hang img{width:calc(var(--w) * .62)}.mobile .hang{--l:90px!important}}
+/* Abschnitte */
+section{padding:110px 0}
+section.alt{background:var(--bg2)}
+.center{text-align:center}
+h2{font-size:clamp(32px,4.4vw,54px);margin:10px 0 18px}
+.intro{max-width:44em;margin:0 auto;color:var(--cream)}
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.story div{background:var(--card);padding:30px;border-radius:14px;border:1px solid rgba(176,141,87,.15)}
+.story h3{font-size:22px;margin-bottom:10px;color:var(--or2)}
+.story p{color:var(--cream);font-size:17px}
+@media(max-width:860px){.story{grid-template-columns:1fr}}
+.films{display:grid;grid-template-columns:2.2fr 1fr;gap:24px;margin-top:50px;align-items:start}
+.films video{width:100%;border-radius:14px;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.films small{display:block;color:var(--mut);margin-top:8px;font-size:14px}
+@media(max-width:860px){.films{grid-template-columns:1fr}}
+/* Konfigurator */
+.konf{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:50px;align-items:center}
+.stage{position:relative;background:radial-gradient(circle at 50% 45%,rgba(176,141,87,.25),transparent 65%),var(--card);border-radius:20px;height:520px;overflow:hidden;border:1px solid rgba(176,141,87,.2)}
+.stage .hang{left:50%;margin-left:calc(var(--w) / -2);top:-40px}
+.opts h3{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:24px 0 10px;font-family:Archivo}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:10px 18px;border-radius:999px;border:1.5px solid #3a3e45;background:transparent;color:var(--tx);font:600 16px "Source Sans 3",sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip .dot{width:16px;height:16px;border-radius:50%}
+.chip.on{border-color:var(--or);background:rgba(176,141,87,.15);color:var(--or2)}
+.price{font-family:Archivo;font-weight:900;font-size:44px;margin-top:28px}
+.price small{font:500 15px "Source Sans 3";color:var(--mut);display:block}
+.vname{font-size:22px;color:var(--or2)}
+@media(max-width:860px){.konf{grid-template-columns:1fr}.stage{height:420px}}
+/* Kollektion Raster */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.tile{background:var(--card);border-radius:14px;padding:18px 14px 16px;text-align:center;cursor:pointer;border:1px solid transparent;transition:.2s}
+.tile:hover{border-color:var(--or);transform:translateY(-3px)}
+.tile img{height:150px;object-fit:contain;margin:0 auto 10px}
+.tile b{display:block;font-size:16px}
+.tile span{color:var(--mut);font-size:14px}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+/* Größen + Sets */
+.sizes{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:40px}
+table{width:100%;border-collapse:collapse;font-size:17px}
+td,th{padding:12px 8px;border-bottom:1px solid #33373d;text-align:left}
+th{color:var(--mut);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:860px){.sizes{grid-template-columns:1fr}}
+.sets{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}.sets.four{grid-template-columns:repeat(4,1fr)}.set{display:flex;flex-direction:column}.set .btn{margin-top:auto}
+.set{background:linear-gradient(180deg,#2a2d33,#202328);border-radius:16px;padding:30px;border:1px solid rgba(176,141,87,.25)}
+.set h3{font-size:24px;margin-bottom:6px}
+.set .p{font-family:Archivo;font-weight:900;font-size:30px;color:var(--or2);margin:14px 0}
+.set p{color:var(--cream);font-size:16px}
+.set .row{display:flex;justify-content:center;gap:4px;margin-bottom:16px;height:90px;align-items:flex-end}
+.set .row img{height:70px}.sets.four .row img{height:54px}
+@media(max-width:860px){.sets,.sets.four{grid-template-columns:1fr}}
+.quote{font-size:clamp(26px,3.4vw,40px);max-width:24em;margin:0 auto;color:var(--cream)}
+.quote b{color:var(--or2);font-weight:500}
+.script{font-family:"Caveat Brush",cursive;color:var(--rot);font-size:1.15em}
+/* FAQ */
+details{background:var(--card);border-radius:12px;padding:18px 22px;margin:12px 0;border:1px solid #2f3339}
+summary{cursor:pointer;font-weight:700;font-size:18px}
+details p{margin-top:10px;color:var(--cream)}
+/* Bestellung */
+form{display:grid;gap:14px;max-width:560px;margin:34px auto 0;text-align:left}
+input,textarea{width:100%;padding:13px 15px;border-radius:10px;border:1px solid #3a3e45;background:#121417;color:var(--tx);font:16px "Source Sans 3",sans-serif}
+#wunsch{background:#121417;border:1px dashed var(--or);border-radius:10px;padding:14px;color:var(--cream);min-height:56px;font-size:16px}
+footer{padding:50px 0 70px;border-top:1px solid #2a2d33;color:var(--mut);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--or);color:#1B1E22;padding:12px 22px;border-radius:999px;font-weight:700;transition:.3s;z-index:30}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><img src="img/ep.png" alt="Ebbing Project">Christbaumpoller</a>
+  <nav><a href="#geschichte">Geschichte</a><a href="#film">Film</a><a href="#kollektion">Kollektion</a><a href="#sets">Sets</a><a href="#fragen">Fragen</a><a class="cta" href="#wunschzettel">Wunschzettel</a></nav>
+</div></header>
+
+<section class="hero">
+  <canvas id="snow"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Neu in diesem Advent · Ebbing Project</div>
+      <h1>Christbaum&shy;poller</h1>
+      <div class="slogan serif">Ein Stück Sicherheitsgefühl für zu Hause.</div>
+      <p class="lead">Jedes Jahr stehen sie wieder da, an jeder Zufahrt, liebevoll bemalt, manchmal sogar mit Schleife. Sie gehören zum Weihnachtsmarkt wie Glühwein und gebrannte Mandeln. Höchste Zeit, dass sie auch bei uns zu Hause ankommen, und zwar dort, wo Tradition hingehört: an den Baum.</p>
+      <div class="btns"><a class="btn gold" href="#kollektion">Kollektion ansehen</a><a class="btn line" href="#film">Film ansehen</a></div>
+    </div>
+    <div class="mobile">
+      <div class="hang" style="left:2%;--l:150px;--w:190px;animation-delay:-1.1s"><img src="img/rot-glanz.webp" alt="Christbaumpoller Rot glänzend"></div>
+      <div class="hang" style="left:34%;--l:250px;--w:220px;animation-delay:-2.3s"><img src="img/gold-glanz-schnee.webp" alt="Christbaumpoller Gold glänzend mit Schnee"></div>
+      <div class="hang" style="left:66%;--l:120px;--w:180px;animation-delay:-.4s"><img src="img/silber-glanz.webp" alt="Christbaumpoller Silber glänzend"></div>
+    </div>
+  </div>
+</section>
+
+<section id="geschichte">
+  <div class="wrap center">
+    <div class="eyebrow">Alle Jahre wieder</div>
+    <h2>Was uns draußen schützt,<br>ist längst Tradition.</h2>
+    <p class="intro">Früher hing an deutschen Bäumen Glas aus Lauscha, Stroh aus dem Erzgebirge, Lametta von Oma. Dann kamen die Sperrblöcke auf die Weihnachtsmärkte. Erst grau, dann gelb, dann rot, irgendwann mit Schleife. Kaum etwas hat die Adventszeit der letzten Jahre so geprägt. Wir finden: Was so lange dabei ist, verdient einen Platz am Baum.</p>
+    <div class="story">
+      <div><h3>Original-Form</h3><p>Nachgebildet nach den Blöcken vom Weihnachtsmarkt: glatter Quader, zwei Transportanker oben und natürlich die beiden Staplertaschen unten. Ohne die geht es nicht.</p></div>
+      <div><h3>Handbeschriftet</h3><p>Jeder Christbaumpoller trägt den Pinselschriftzug <span class="script">#wirschaffendas</span>. Ein Satz, der sich über die Jahre ins Gedächtnis gestellt hat wie die Blöcke an die Zufahrt.</p></div>
+      <div><h3>Leicht genug</h3><p>Viel leichter als das Original, damit kein Zweig durchhängt, und trotzdem satt in der Hand. Mit Messingöse und Goldfaden, bereit für den Baum. Auf Wunsch frisch eingeschneit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="film" class="alt">
+  <div class="wrap center">
+    <div class="eyebrow">Der Film</div>
+    <h2>Stille Nacht. Sichere Nacht.</h2>
+    <p class="intro">Mach den Ton an, dann läuft „Stille Nacht“ als Spieluhr.</p>
+    <div class="films">
+      <div><video src="clips/christbaumpoller-quer.mp4" poster="img/poster-quer.jpg" controls playsinline preload="metadata"></video><small>Spot · Querformat · 23 Sekunden</small></div>
+      <div><video src="clips/christbaumpoller-hoch.mp4" poster="img/poster-hoch.jpg" controls playsinline preload="metadata"></video><small>Für Reels, Shorts und Status · Hochformat</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="kollektion">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Die Kollektion</div>
+      <h2>Stellen Sie Ihren Poller zusammen.</h2>
+      <p class="intro">Drei Farben, zwei Oberflächen, mit oder ohne Schnee, in drei Größen. Macht 36 Möglichkeiten, Weihnachten ein bisschen sicherer zu machen. Jeder Poller kostet 4,99 €, und je mehr Sie absichern, desto günstiger wird es. Alles frei mischbar.</p>
+    </div>
+    <div class="konf">
+      <div class="stage"><div class="hang" id="stageHang" style="--l:170px;--w:340px"><img id="stageImg" src="img/gold-glanz.webp" alt=""></div></div>
+      <div class="opts">
+        <div class="vname" id="vname">Gold glänzend · M</div>
+        <h3>Farbe</h3>
+        <div class="chips" data-k="farbe">
+          <button class="chip on" data-v="gold"><span class="dot" style="background:linear-gradient(135deg,#f1d48e,#b8913f)"></span>Gold</button>
+          <button class="chip" data-v="silber"><span class="dot" style="background:linear-gradient(135deg,#f0f2f5,#9ea3ab)"></span>Silber</button>
+          <button class="chip" data-v="rot"><span class="dot" style="background:linear-gradient(135deg,#e04450,#8e121b)"></span>Rot</button>
+        </div>
+        <h3>Oberfläche</h3>
+        <div class="chips" data-k="oberflaeche"><button class="chip on" data-v="glanz">Glänzend</button><button class="chip" data-v="matt">Matt</button></div>
+        <h3>Schnee</h3>
+        <div class="chips" data-k="schnee"><button class="chip on" data-v="">Ohne</button><button class="chip" data-v="-schnee">Frisch eingeschneit</button></div>
+        <h3>Größe</h3>
+        <div class="chips" data-k="groesse"><button class="chip" data-v="S">S · 5 cm</button><button class="chip on" data-v="M">M · 7 cm</button><button class="chip" data-v="L">L · 9 cm</button></div>
+        <h3>Menge</h3>
+        <div class="chips" style="align-items:center"><button class="chip" type="button" id="minus">−</button><input id="qty" type="number" min="1" value="1" style="width:90px;text-align:center"><button class="chip" type="button" id="plus">+</button>
+          <button class="chip" type="button" data-q="10">10</button><button class="chip" type="button" data-q="20">20</button><button class="chip" type="button" data-q="30">30</button><button class="chip" type="button" data-q="100">100</button></div>
+        <div class="price" id="price">4,99 €<small id="pinfo">Stückpreis 4,99 € · inkl. MwSt., zzgl. Versand · Vorbestellung</small></div>
+        <div class="btns"><button class="btn gold" id="addBtn">Auf den Wunschzettel</button></div>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Größen</div><h2>Für jeden Ast der richtige Poller.</h2></div>
+    <div class="sizes">
+      <img src="img/groessen.webp" alt="Christbaumpoller in S, M und L">
+      <table>
+        <tr><th>Größe</th><th>Länge</th><th>Wofür</th><th>Preis</th></tr>
+        <tr><td><b>S</b></td><td>5 cm</td><td>für die Zweigspitzen</td><td>4,99 €</td></tr>
+        <tr><td><b>M</b></td><td>7 cm</td><td>der Klassiker</td><td>4,99 €</td></tr>
+        <tr><td><b>L</b></td><td>9 cm</td><td>für die Mitte vom Baum</td><td>4,99 €</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="sets">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Mengenrabatt</div><h2>Mehr Sicherheit. Weniger pro Stück.</h2>
+    <p class="intro">Ein Preis für alle Farben, Oberflächen und Größen. Der Rabatt zählt auf die ganze Bestellung, gemischt wie Sie wollen.</p></div>
+    <div class="sets four">
+      <div class="set"><div class="row"><img src="img/rot-glanz.webp" alt=""></div>
+        <h3>Einzeln</h3><p>Für den ersten Versuch am eigenen Baum.</p><div class="p">4,99 €</div><p>pro Stück</p><a class="btn line" href="#kollektion" style="margin-top:auto;text-align:center">Poller wählen</a></div>
+      <div class="set"><div class="row"><img src="img/gold-glanz.webp" alt=""><img src="img/silber-matt.webp" alt=""></div>
+        <h3>Kleine Absperrung</h3><p>10 Stück · 30 % Rabatt</p><div class="p">34,93 €</div><p>statt 49,90 € · 3,49 € pro Stück</p><button class="btn gold set-add" data-n="10">10er-Pack auf den Wunschzettel</button></div>
+      <div class="set"><div class="row"><img src="img/gold-glanz-schnee.webp" alt=""><img src="img/rot-matt-schnee.webp" alt=""><img src="img/silber-glanz-schnee.webp" alt=""></div>
+        <h3>Weihnachtsmarkt-Zufahrt</h3><p>20 Stück · 35 % Rabatt</p><div class="p">64,87 €</div><p>statt 99,80 € · 3,24 € pro Stück</p><button class="btn gold set-add" data-n="20">20er-Pack auf den Wunschzettel</button></div>
+      <div class="set"><div class="row"><img src="img/rot-glanz.webp" alt=""><img src="img/gold-matt.webp" alt=""><img src="img/silber-matt-schnee.webp" alt=""></div>
+        <h3>Komplette Zufahrtssicherung</h3><p>30 Stück · 40 % Rabatt</p><div class="p">89,82 €</div><p>statt 149,70 € · 2,99 € pro Stück</p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
+    </div>
+    <div class="set" style="margin-top:24px;text-align:center"><h3>Ab 100 Stück: Ihre persönliche Gravur gratis</h3><p>Für Firmen, Vereine, Weihnachtsfeiern und Stadtverwaltungen mit Humor. Ab 100 Stück gravieren wir einen Poller nach Ihrem Wunsch, zum Beispiel mit Ihrem Namen, Ihrer Stadt oder Ihrem eigenen Hashtag. Kostenlos dazu, bei 40 % Rabatt auf alle.</p><div class="p">100 Stück: 299,40 €</div></div>
+  </div>
+</section>
+
+<section class="alt center">
+  <div class="wrap">
+    <p class="quote serif">„Früher haben wir uns gefragt, was an den Baum kommt.<br><b>Heute wissen wir, was davor steht.</b>“</p>
+  </div>
+</section>
+
+<section id="fragen">
+  <div class="wrap" style="max-width:820px">
+    <div class="center"><div class="eyebrow">Häufige Fragen</div><h2>Gut zu wissen.</h2></div>
+    <details><summary>Ist das ernst gemeint?</summary><p>Todernst. Und mit viel Liebe gemacht. Wer schon mal auf einem deutschen Weihnachtsmarkt war, weiß, warum.</p></details>
+    <details><summary>Woraus ist der Christbaumpoller?</summary><p>Aus einem leichten Kern in Betonoptik, von Hand grundiert und lackiert, in Metallic glänzend oder samtig matt. Der Schnee ist von Hand aufgetragen und mit Glitzer versiegelt. Messingöse und Goldfaden sind dabei.</p></details>
+    <details><summary>Hält mein Baum das aus?</summary><p>Größe S und M hängen an jedem normalen Zweig. Für L empfehlen wir einen kräftigen Ast weiter innen, so wie im echten Leben: Der Poller steht da, wo es drauf ankommt.</p></details>
+    <details><summary>Warum steht „#wirschaffendas“ drauf?</summary><p>Weil es auf die Blöcke gehört wie der Stadtname. Und weil wir es schaffen. Jedes Jahr wieder.</p></details>
+    <details><summary>Bekomme ich ihn noch vor Heiligabend?</summary><p>Die erste Auflage ist begrenzt. Wer bis zum 2. Advent vorbestellt, bekommt bevorzugt geliefert. Die genauen Liefertermine nennen wir mit der Bestätigung.</p></details>
+    <details><summary>Ist das Spielzeug?</summary><p>Nein. Dekoration für Erwachsene. Kleinteile, nicht für Kinder unter 3 Jahren geeignet.</p></details>
+  </div>
+</section>
+
+<section id="wunschzettel" class="alt center">
+  <div class="wrap">
+    <div class="eyebrow">Wunschzettel</div>
+    <h2>Jetzt vorbestellen.</h2>
+    <p class="intro">Wir starten mit einer kleinen Auflage. Schicken Sie uns Ihren Wunschzettel, wir melden uns mit Bestätigung, Liefertermin und Zahlungsinfo. Noch zahlen Sie nichts.</p>
+    <form id="order" onsubmit="return sendOrder(event)">
+      <div id="wunsch">Noch leer. Wählen Sie oben Ihre Poller aus.</div>
+      <input id="oname" placeholder="Ihr Name" required>
+      <input id="oort" placeholder="PLZ und Ort" required>
+      <textarea id="omsg" rows="3" placeholder="Nachricht (optional)"></textarea>
+      <button class="btn gold" type="submit">Wunschzettel abschicken</button>
+      <small style="color:var(--mut)">Öffnet Ihr E-Mail-Programm mit dem fertigen Wunschzettel an info@ebbing-project.de.</small>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><b style="color:var(--tx)">Ebbing Project GmbH</b><br>Marienthaler Str. 44a · 46348 Raesfeld<br>info@ebbing-project.de</div>
+  <div>Christbaumpoller ist eine Satire-Kollektion von Ebbing Project.<br>Alle Abbildungen sind Gestaltungsentwürfe. <a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">Widerruf</a></div>
+</div></footer>
+<div class="toast" id="toast">Auf dem Wunschzettel ✓</div>
+
+<script>
+// Schnee
+(function(){const c=document.getElementById('snow'),x=c.getContext('2d');let W,H,f=[];
+function r(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;f=Array.from({length:Math.min(220,W/6)},()=>({x:Math.random()*W,y:Math.random()*H,s:.6+Math.random()*2.6,v:.3+Math.random()*1.1,p:Math.random()*6}))}
+r();addEventListener('resize',r);
+(function d(t){x.clearRect(0,0,W,H);x.fillStyle='rgba(255,255,255,.85)';for(const k of f){k.y+=k.v;if(k.y>H+5){k.y=-5;k.x=Math.random()*W}const xx=k.x+Math.sin(t/1400+k.p)*14;x.beginPath();x.arc(xx,k.y,k.s,0,7);x.fill()}requestAnimationFrame(d)})(0)})();
+
+// Konfigurator
+const NAME={gold:'Gold',silber:'Silber',rot:'Rot',glanz:'glänzend',matt:'matt'};
+const EP=4.99;
+function rabatt(n){return n>=30?.40:n>=20?.35:n>=10?.30:0}
+const W={S:250,M:320,L:390};
+const st={farbe:'gold',oberflaeche:'glanz',schnee:'',groesse:'M'};
+const eur=v=>v.toFixed(2).replace('.',',')+' €';
+const qty=document.getElementById('qty');
+function key(){return st.farbe+'-'+st.oberflaeche+st.schnee}
+function label(){return NAME[st.farbe]+' '+NAME[st.oberflaeche]+(st.schnee?' · mit Schnee':'')+' · '+st.groesse}
+function summe(n){return Math.round(n*EP*(1-rabatt(n))*100)/100}
+function upd(){
+  const n=Math.max(1,parseInt(qty.value)||1);
+  document.getElementById('stageImg').src='img/'+key()+'.webp';
+  document.getElementById('stageHang').style.setProperty('--w',W[st.groesse]+'px');
+  document.getElementById('vname').textContent=label();
+  document.getElementById('price').firstChild.textContent=eur(summe(n));
+  const r=rabatt(n);
+  document.getElementById('pinfo').textContent=(n>1?n+' Stück · ':'')+(r?Math.round(r*100)+' % Rabatt · ':'')+'Stückpreis '+eur(EP*(1-r))+(n>=100?' · Gravur gratis':'')+' · inkl. MwSt., zzgl. Versand';
+}
+document.querySelectorAll('.chips[data-k]').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;
+  g.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');st[g.dataset.k]=b.dataset.v;upd()}));
+document.getElementById('minus').onclick=()=>{qty.value=Math.max(1,(parseInt(qty.value)||1)-1);upd()};
+document.getElementById('plus').onclick=()=>{qty.value=(parseInt(qty.value)||0)+1;upd()};
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{qty.value=b.dataset.q;upd()});
+qty.oninput=upd;
+// Raster
+const grid=document.getElementById('grid');
+['gold','silber','rot'].forEach(f=>['glanz','matt'].forEach(o=>['','-schnee'].forEach(s=>{
+  const d=document.createElement('div');d.className='tile';
+  d.innerHTML=`<img loading="lazy" src="img/${f}-${o}${s}.webp" alt=""><b>${NAME[f]} ${NAME[o]}</b><span>${s?'mit Schnee · ':''}4,99 €</span>`;
+  d.onclick=()=>{st.farbe=f;st.oberflaeche=o;st.schnee=s;
+    document.querySelectorAll('.chips[data-k]').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.v===st[g.dataset.k])));
+    upd();document.getElementById('kollektion').scrollIntoView({behavior:'smooth'})};
+  grid.appendChild(d)})));
+// Wunschzettel: Rabatt auf die Gesamtmenge
+const liste=[];
+function text(){const n=liste.reduce((s,[,q])=>s+q,0),r=rabatt(n);
+  return {n,r,zeilen:liste.map(([a,q])=>q+' × '+a),sum:summe(n)}}
+function add(t,q){liste.push([t,q]);const x=text(),w=document.getElementById('wunsch');
+  w.innerHTML=x.zeilen.map(z=>'• '+z).join('<br>')+'<br><b>'+x.n+' Stück'+(x.r?' · '+Math.round(x.r*100)+' % Rabatt':'')+' · Summe '+eur(x.sum)+'</b>'+(x.n>=100?'<br>Persönliche Gravur auf einem Poller: gratis – Wunschtext bitte unten in die Nachricht.':'');
+  const t2=document.getElementById('toast');t2.classList.add('show');setTimeout(()=>t2.classList.remove('show'),1600)}
+document.getElementById('addBtn').onclick=()=>add('Christbaumpoller '+label(),Math.max(1,parseInt(qty.value)||1));
+document.querySelectorAll('.set-add').forEach(b=>b.onclick=()=>add('Christbaumpoller gemischt (Farben/Größen bitte in der Nachricht)',parseInt(b.dataset.n)));
+function sendOrder(e){e.preventDefault();
+  if(!liste.length){alert('Der Wunschzettel ist noch leer.');return false}
+  const x=text();
+  const body='Wunschzettel Christbaumpoller\n\n'+x.zeilen.map(z=>'- '+z).join('\n')+'\n\n'+x.n+' Stück'+(x.r?', '+Math.round(x.r*100)+' % Rabatt':'')+'\nSumme: '+eur(x.sum)+(x.n>=100?'\nGravur gratis (ab 100 Stück)':'')+'\n\nName: '+document.getElementById('oname').value+'\nOrt: '+document.getElementById('oort').value+'\n\n'+document.getElementById('omsg').value;
+  location.href='mailto:info@ebbing-project.de?subject='+encodeURIComponent('Wunschzettel Christbaumpoller')+'&body='+encodeURIComponent(body);return false}
+</script>
+</body>
+</html>
