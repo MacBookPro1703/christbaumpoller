@@ -127,16 +127,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 /* Verpackung */
 .packs{display:grid;grid-template-columns:1fr 1.25fr;gap:26px;margin-top:50px}
 .pk{background:linear-gradient(180deg,#2a2d33,#202328);border-radius:18px;border:1px solid rgba(176,141,87,.25);overflow:hidden;display:flex;flex-direction:column}
-.pk img{width:100%;aspect-ratio:16/11;object-fit:cover;background:#140e0c}
+.pk .pkimg{position:relative;height:clamp(260px,30vw,370px);background:#140e0c}
+.pk .pkimg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .pk .tx{padding:24px 26px 28px}
 .pk h3{font-size:24px;margin-bottom:4px}
 .pk .sub{color:var(--or2);font-family:Lora,serif;font-style:italic;margin-bottom:12px}
 .pk p{color:var(--cream);font-size:16px}
 .pk ul{margin:12px 0 0 18px;color:var(--cream);font-size:15px}
-.pk .tog{display:flex;gap:8px;margin:0 26px;transform:translateY(-22px);position:relative;z-index:2}
+.pk .tog{display:flex;gap:8px;position:absolute;left:18px;bottom:14px;z-index:2}
 .pk .tog .chip{background:rgba(21,23,26,.85);padding:7px 14px;font-size:14px}
 .pk .tog .chip.on{background:rgba(176,141,87,.35)}
-@media(max-width:860px){.packs{grid-template-columns:1fr}}
+@media(max-width:860px){.packs{grid-template-columns:1fr}.pk .pkimg{height:auto}.pk .pkimg img{height:auto;aspect-ratio:16/11}}
 .v3wrap{margin-top:46px;background:radial-gradient(ellipse at 50% 40%,rgba(176,141,87,.22),transparent 60%),#121417;border-radius:20px;border:1px solid rgba(176,141,87,.22);padding:18px 18px 22px}
 .v3bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
 .v3bar .sep{width:1px;height:26px;background:#3a3e45;margin:0 6px}
@@ -289,15 +290,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     <p class="intro">Rot, Gold, Schleife, Glitzer – wie jedes ordentliche Weihnachtsgeschenk im Regal. Erst beim zweiten Hinsehen merkt man, was draufsteht. Es gibt genau zwei Verpackungen: die Einzelschachtel und die 10er-Schachtel. Wer 20, 30 oder 100 Stück bestellt, bekommt zwei, drei oder zehn 10er-Schachteln.</p></div>
     <div class="packs">
       <div class="pk">
-        <img loading="lazy" src="img/pack/einzel.webp" alt="Einzelschachtel Die Einzelmaßnahme mit Kirchenfenster">
+        <div class="pkimg"><img loading="lazy" src="img/pack/einzel.webp" alt="Einzelschachtel Die Einzelmaßnahme mit Kirchenfenster"></div>
         <div class="tx"><h3>Die Einzelmaßnahme</h3><div class="sub">„Fürchtet euch nicht.“ – Lukas 2,10</div>
           <p>Der Poller steht hinter einem goldenen Kirchenfenster, im Strahlenkranz, wie es sich für eine Reliquie gehört. Oben die Kopfkarte zum Aufhängen im Regal.</p>
           <ul><li>Siegel: geprüft nach Gefühl</li><li>Oben: „Hier öffnen. Ohne Genehmigung.“</li><li>Hinten: Gebrauchsinformation – mindestens haltbar bis Ende der Gefährdungslage</li></ul></div>
       </div>
       <div class="pk">
-        <img loading="lazy" id="pk10img" src="img/pack/zehner-zu.webp" alt="10er-Schachtel Sicherheitskonzept für Ihr Wohnzimmer">
-        <div class="tog"><button class="chip on" data-img="img/pack/zehner-zu.webp">Geschlossen</button><button class="chip" data-img="img/pack/zehner-offen.webp">Geöffnet</button></div>
-        <div class="tx" style="padding-top:0"><h3>Sicherheitskonzept für Ihr Wohnzimmer</h3><div class="sub">„Macht hoch die Tür, die Tor macht weit … wir sperren trotzdem ab.“</div>
+        <div class="pkimg"><img loading="lazy" id="pk10img" src="img/pack/zehner-zu.webp" alt="10er-Schachtel Sicherheitskonzept für Ihr Wohnzimmer">
+        <div class="tog"><button class="chip on" data-img="img/pack/zehner-zu.webp">Geschlossen</button><button class="chip" data-img="img/pack/zehner-offen.webp">Geöffnet</button></div></div>
+        <div class="tx"><h3>Sicherheitskonzept für Ihr Wohnzimmer</h3><div class="sub">„Macht hoch die Tür, die Tor macht weit … wir sperren trotzdem ab.“</div>
           <p>10-teilig, behördlich nicht abgenommen. Zehn Poller in zwei Reihen, aufgestellt wie eine Zufahrtssperre. Hinten die Aufbauanleitung samt Genehmigungsvermerk: beantragt nein, in Prüfung nein, gefühlt ja.</p>
           <ul><li>Vorne auf der Schale: „Bitte Rettungsgasse zum Plätzchenteller freihalten.“</li><li>Je Schachtel eine Variante – die bunte Mischung zeigt nur, was es gibt.</li></ul></div>
       </div>
