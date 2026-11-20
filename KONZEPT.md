@@ -64,29 +64,24 @@ Artikelnummern-Vorschlag: `CBP-<Farbe>-<Oberfläche>-<Schnee>-<Größe>`, z. B. 
 
 Dazu kommen Druck- und Handarbeitszeit, Zahlungsgebühren (je nach Anbieter ~1,5–3 %) und Versand.
 
-## 3. Preise (Vorgabe Jörg, 20.11.2026)
+## 3. Preise (Vorgabe Jörg, 20.11.2026 22:05 – nach Preisrecherche)
 
-Ein Preis für alle Farben, Oberflächen, Größen und mit/ohne Schnee: **4,99 € je Stück**, inkl. MwSt. Rabatt auf die **Gesamtmenge der Bestellung**, frei mischbar:
+Ein Preis für alle Farben, Oberflächen, Größen und mit/ohne Schnee, inkl. MwSt. Der Stückpreis richtet sich nach der **Gesamtmenge der Bestellung**, frei mischbar:
 
-| Menge | Rabatt | Stückpreis | Packpreis |
+| Menge | Preis | Stückpreis | gespart ggü. Einzelpreis |
 |---|---|---|---|
-| 1–9 | – | 4,99 € | – |
-| ab 10 | 30 % | 3,49 € | 10er: **34,93 €** |
-| ab 20 | 35 % | 3,24 € | 20er: **64,87 €** |
-| ab 30 | 40 % | 2,99 € | 30er: **89,82 €** |
-| ab 100 | 40 % + **persönliche Gravur auf einem Poller gratis** | 2,99 € | 100 Stück: **299,40 €** |
+| 1–9 | 2,99 € je Stück | 2,99 € | – |
+| ab 10 | 10er-Pack **19,95 €** | 2,00 € | 33 % |
+| ab 20 | 20er-Pack **29,99 €** | 1,50 € | 50 % |
+| ab 30 | 30er-Pack **39,95 €** | 1,33 € | 55 % |
+| ab 100 | z. B. 100 Stück **133,17 €** + **persönliche Gravur auf einem Poller gratis** | 1,33 € | 55 % |
 
-**Ehrlicher Hinweis zur Marge:** Bei 2,99 € brutto bleiben netto (19 % MwSt.) 2,51 € je Stück. Abzüglich Material (1,10–1,90 €) bleiben 0,60–1,40 € für Arbeitszeit, Gebühren und Gewinn. Bei 4,99 € brutto sind es 4,19 € netto. Damit das trägt, entweder:
-- Versand immer extra (z. B. 4,95 € Warensendung/Päckchen), Versand nicht in den Stückpreis rechnen,
-- oder L mit Aufpreis (z. B. +1,00 €), weil L etwa das Doppelte an Material und Druckzeit braucht,
-- oder Schnee mit Aufpreis (+1,00 €), weil das reine Handarbeit ist.
-
-Auf der Seite ist aktuell deine Vorgabe umgesetzt: alles 4,99 €, keine Aufpreise. Ändern ist eine Zeile im Code.
+Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück: einzeln 2,51 €, 10er 1,68 €, 20er 1,26 €, 30er 1,12 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
 
 ## 4. Vertrieb
 
 ### Zielgruppen
-1. **Humor-Geschenk privat**: Wichteln, Schrottwichteln, Adventskalender, „der Kollege, der alles hat“. Einstiegspreis 4,99 € passt genau.
+1. **Humor-Geschenk privat**: Wichteln, Schrottwichteln, Adventskalender, „der Kollege, der alles hat“. Einstiegspreis 2,99 € passt genau.
 2. **Firmen-Weihnachtsfeiern und Teams** (10er–30er): Bau, Sicherheit, Event, Verwaltung, Agenturen.
 3. **Branchen mit eingebautem Bezug** (ab 100, mit Gravur): Betonfertigteilwerke, die solche Blöcke herstellen, Vermieter mobiler Sperren, Sicherheits- und Ordnungsdienste, Schaustellerverbände, Stadtmarketing mit Humor. Die Gravur („Stadtwerke XY“, eigener Hashtag) macht es zum Kundengeschenk.
 
