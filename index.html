@@ -180,7 +180,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     <div class="center">
       <div class="eyebrow">Die Kollektion</div>
       <h2>Stellen Sie Ihren Poller zusammen.</h2>
-      <p class="intro">Drei Farben, zwei Oberflächen, mit oder ohne Schnee, in drei Größen. Macht 36 Möglichkeiten, Weihnachten ein bisschen sicherer zu machen. Ein Poller kostet 2,99 €, im 10er-Pack 19,95 €, im 20er-Pack 29,99 € und im 30er-Pack 39,95 €. Je mehr Sie absichern, desto günstiger wird es. Alles frei mischbar.</p>
+      <p class="intro">Drei Farben, zwei Oberflächen, mit oder ohne Schnee, in drei Größen. Macht 36 Möglichkeiten, Weihnachten ein bisschen sicherer zu machen. Ein Poller kostet 2,99 €, im 10er-Pack 19,99 €, im 20er-Pack 29,99 € und im 30er-Pack 39,99 €. Je mehr Sie absichern, desto günstiger wird es. Alles frei mischbar.</p>
     </div>
     <div class="konf">
       <div class="stage"><div class="hang" id="stageHang" style="--l:170px;--w:340px"><img id="stageImg" src="img/gold-glanz.webp" alt=""></div></div>
@@ -232,11 +232,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
       <div class="set"><div class="row"><img src="img/rot-glanz.webp" alt=""></div>
         <h3>Einzeln</h3><p>Für den ersten Versuch am eigenen Baum.</p><div class="p">2,99 €</div><p>pro Stück</p><a class="btn line" href="#kollektion" style="margin-top:auto;text-align:center">Poller wählen</a></div>
       <div class="set"><div class="row"><img src="img/gold-glanz.webp" alt=""><img src="img/silber-matt.webp" alt=""></div>
-        <h3>Kleine Absperrung</h3><p>10 Stück · 33 % gespart</p><div class="p">19,95 €</div><p>statt 29,90 € · knapp 2,00 € pro Stück</p><button class="btn gold set-add" data-n="10">10er-Pack auf den Wunschzettel</button></div>
+        <h3>Kleine Absperrung</h3><p>10 Stück · 33 % gespart</p><div class="p">19,99 €</div><p>statt 29,90 € · knapp 2,00 € pro Stück</p><button class="btn gold set-add" data-n="10">10er-Pack auf den Wunschzettel</button></div>
       <div class="set"><div class="row"><img src="img/gold-glanz-schnee.webp" alt=""><img src="img/rot-matt-schnee.webp" alt=""><img src="img/silber-glanz-schnee.webp" alt=""></div>
         <h3>Weihnachtsmarkt-Zufahrt</h3><p>20 Stück · 50 % gespart</p><div class="p">29,99 €</div><p>statt 59,80 € · 1,50 € pro Stück</p><button class="btn gold set-add" data-n="20">20er-Pack auf den Wunschzettel</button></div>
       <div class="set"><div class="row"><img src="img/rot-glanz.webp" alt=""><img src="img/gold-matt.webp" alt=""><img src="img/silber-matt-schnee.webp" alt=""></div>
-        <h3>Komplette Zufahrtssicherung</h3><p>30 Stück · 55 % gespart</p><div class="p">39,95 €</div><p>statt 89,70 € · 1,33 € pro Stück</p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
+        <h3>Komplette Zufahrtssicherung</h3><p>30 Stück · 55 % gespart</p><div class="p">39,99 €</div><p>statt 89,70 € · 1,33 € pro Stück</p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
     </div>
     <div class="set" style="margin-top:24px;text-align:center"><h3>Ab 100 Stück: Ihre persönliche Gravur oder Ihr eigener Schriftzug inklusive</h3><p>Für Firmen, Vereine, Weihnachtsfeiern und Stadtverwaltungen mit Humor. Ab 100 Stück bekommt ein Poller Ihre persönliche Gravur oder Ihren eigenen Schriftzug, zum Beispiel Ihren Namen, Ihre Stadt oder Ihren eigenen Hashtag. Im Preis enthalten.</p><div class="p">100 Stück: 149,99 €</div><p>1,50 € pro Stück, persönliche Gravur oder Schriftzug inklusive</p></div>
   </div>
@@ -292,8 +292,8 @@ r();addEventListener('resize',r);
 // Konfigurator
 const NAME={gold:'Gold',silber:'Silber',rot:'Rot',glanz:'glänzend',matt:'matt'};
 const EP=2.99;
-// Packpreise: 10 = 19,95 € · 20 = 29,99 € · 30 = 39,95 € · 100 = 149,99 € inkl. Gravur oder eigenem Schriftzug (Stückpreis gilt für die Gesamtmenge)
-function stp(n){return n>=100?149.99/100:n>=30?39.95/30:n>=20?29.99/20:n>=10?19.95/10:EP}
+// Packpreise: 10 = 19,99 € · 20 = 29,99 € · 30 = 39,99 € · 100 = 149,99 € inkl. Gravur oder eigenem Schriftzug (Stückpreis gilt für die Gesamtmenge)
+function stp(n){return n>=100?149.99/100:n>=30?39.99/30:n>=20?29.99/20:n>=10?19.99/10:EP}
 function rabatt(n){return 1-stp(n)/EP}
 const W={S:250,M:320,L:390};
 const st={farbe:'gold',oberflaeche:'glanz',schnee:'',groesse:'M'};
