@@ -70,18 +70,18 @@ Preise inkl. MwSt. je Größe. Alle Poller eines Packs sind gleich (Größe, Far
 
 | Größe | einzeln | 10er-Pack | 20er-Pack | 30er-Pack | 100 Stück inkl. persönlicher Gravur oder eigenem Schriftzug |
 |---|---|---|---|---|---|
-| S (5 cm) | 2,99 € | 24,99 € | 39,99 € | 49,99 € | 149,99 € |
-| M (7 cm) | 3,49 € | 28,99 € | 46,99 € | 57,99 € | 174,99 € |
-| L (9 cm) | 3,99 € | 32,99 € | 53,99 € | 66,99 € | 199,99 € |
+| S (5 cm) | 3,99 € | 24,99 € | 39,99 € | 49,99 € | 149,99 € |
+| M (7 cm) | 4,99 € | 28,99 € | 46,99 € | 57,99 € | 174,99 € |
+| L (9 cm) | 5,99 € | 32,99 € | 53,99 € | 66,99 € | 199,99 € |
 
-S-Preise: Vorgabe Jörg 22:38; **20er S auf 39,99 € und 30er S auf 49,99 € angehoben (Jörg 21.11.2026 00:10/00:13)**, M und L nach derselben Logik (20er 46,99/53,99 €, 30er 57,99/66,99 €) (M ≈ S × 7/6, L ≈ S × 4/3, auf ,99 gerundet). M und L: gleiche Preislogik wie S, von Jörg freigegeben. Zwischen den Packgrößen gilt der Stückpreis der nächstkleineren Stufe.
+**Einzelpreise S 3,99 / M 4,99 / L 5,99 € (Jörg 21.11.2026 00:51, vorher 2,99/3,49/3,99; Staffel ab 10 unverändert).** S-Preise: Vorgabe Jörg 22:38; **20er S auf 39,99 € und 30er S auf 49,99 € angehoben (Jörg 21.11.2026 00:10/00:13)**, M und L nach derselben Logik (20er 46,99/53,99 €, 30er 57,99/66,99 €) (M ≈ S × 7/6, L ≈ S × 4/3, auf ,99 gerundet). M und L: gleiche Preislogik wie S, von Jörg freigegeben. Zwischen den Packgrößen gilt der Stückpreis der nächstkleineren Stufe.
 
 Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück (Größe S, ohne 19 % MwSt.): einzeln 2,51 €, 10er 2,10 €, 20er 1,68 €, 30er 1,40 €, 100 Stück 1,26 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
 
 ## 4. Vertrieb
 
 ### Zielgruppen
-1. **Humor-Geschenk privat**: Wichteln, Schrottwichteln, Adventskalender, „der Kollege, der alles hat“. Einstiegspreis 2,99 € passt genau.
+1. **Humor-Geschenk privat**: Wichteln, Schrottwichteln, Adventskalender, „der Kollege, der alles hat“. Einstiegspreis 3,99 € passt genau.
 2. **Firmen-Weihnachtsfeiern und Teams** (10er–30er): Bau, Sicherheit, Event, Verwaltung, Agenturen.
 3. **Branchen mit eingebautem Bezug** (ab 100, mit Gravur): Betonfertigteilwerke, die solche Blöcke herstellen, Vermieter mobiler Sperren, Sicherheits- und Ordnungsdienste, Schaustellerverbände, Stadtmarketing mit Humor. Die Gravur („Stadtwerke XY“, eigener Hashtag) macht es zum Kundengeschenk.
 
