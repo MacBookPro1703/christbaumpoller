@@ -64,17 +64,17 @@ Artikelnummern-Vorschlag: `CBP-<Farbe>-<Oberfläche>-<Schnee>-<Größe>`, z. B. 
 
 Dazu kommen Druck- und Handarbeitszeit, Zahlungsgebühren (je nach Anbieter ~1,5–3 %) und Versand.
 
-## 3. Preise (Vorgabe Jörg, 20.11.2026 22:05 – nach Preisrecherche)
+## 3. Preise (Vorgabe Jörg, 20.11.2026 22:18 – final)
 
-Ein Preis für alle Farben, Oberflächen, Größen und mit/ohne Schnee, inkl. MwSt. Der Stückpreis richtet sich nach der **Gesamtmenge der Bestellung**, frei mischbar:
+Preise inkl. MwSt. je Größe. Alle Poller eines Packs sind gleich (Größe, Farbe, Variante frei wählbar):
 
-| Menge | Preis | Stückpreis | gespart ggü. Einzelpreis |
-|---|---|---|---|
-| 1–9 | 2,99 € je Stück | 2,99 € | – |
-| ab 10 | 10er-Pack **19,99 €** | 2,00 € | 33 % |
-| ab 20 | 20er-Pack **29,99 €** | 1,50 € | 50 % |
-| ab 30 | 30er-Pack **39,99 €** | 1,33 € | 55 % |
-| ab 100 | 100 Stück **149,99 €** inkl. **persönlicher Gravur oder eigenem Schriftzug auf einem Poller** (Vorgabe Jörg 22:07) | 1,50 € | 50 % |
+| Größe | einzeln | 10er-Pack | 20er-Pack | 30er-Pack | 100 Stück inkl. persönlicher Gravur oder eigenem Schriftzug |
+|---|---|---|---|---|---|
+| S (5 cm) | 2,99 € | 19,99 € | 29,99 € | 39,99 € | 149,99 € |
+| M (7 cm) | 3,49 € | 23,99 € | 34,99 € | 46,99 € | 174,99 € |
+| L (9 cm) | 3,99 € | 26,99 € | 39,99 € | 53,99 € | 199,99 € |
+
+S-Preise: Vorgabe Jörg. M- und L-Packpreise: Vorschlag mit derselben Ersparnis wie bei S (ca. 33 / 50 / 55 %, 100 Stück 50 %), von Jörg freigegeben. Zwischen den Packgrößen gilt der Stückpreis der nächstkleineren Stufe.
 
 Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel) laut Schätzung vom 20.11.2026: realistisch 0,89 € bei 5.000 Stück bis 0,42 € bei 50.000 Stück bis vor die Tür. Netto-Erlös je Stück: einzeln 2,51 €, 10er 1,68 €, 20er 1,26 €, 30er 1,12 € – Versand an Kunden, Verpackung und Gebühren noch nicht abgezogen. Belastbar erst mit echten Angeboten.
 
