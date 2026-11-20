@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Entwurf: Marktplatz-Produktseite Christbaumpoller · Ebbing Project</title>
+<link rel="icon" href="img/favicon.png">
+<style>
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url(fonts/source-sans-3-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+:root{--ink:#16181b;--mut:#5f6670;--line:#e3e5e8;--bg:#f6f7f8;--acc:#1f5c4a;--gold:#b08d57;--red:#a3121c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:15px;line-height:1.45}
+a{color:var(--acc)}
+.draft{background:#2b2f35;color:#fff;font-size:13px;padding:7px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.draft b{color:#f1d48e}
+.top{border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:16px}
+.top .logo{font-weight:700;font-size:20px;letter-spacing:-.01em}
+.top .logo span{color:var(--gold)}
+.top .search{flex:1;max-width:640px;border:1px solid #c9ccd1;border-radius:8px;padding:8px 12px;color:var(--mut);font-size:14px}
+.crumb{font-size:13px;color:var(--mut);padding:10px 20px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 20px 40px}
+.main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 300px;gap:28px;align-items:start}
+/* Galerie */
+.gal{display:grid;grid-template-columns:64px 1fr;gap:12px;position:sticky;top:12px}
+.thumbs{display:flex;flex-direction:column;gap:8px}
+.thumbs img{width:64px;height:64px;object-fit:cover;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:#fff}
+.thumbs img.on{border:2px solid var(--acc)}
+.big{border:1px solid var(--line);border-radius:8px;aspect-ratio:1;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center}
+.big img{width:100%;height:100%;object-fit:contain}
+.zoomhint{font-size:12px;color:var(--mut);text-align:center;margin-top:6px}
+/* Info */
+h1{font-size:22px;font-weight:600;line-height:1.3}
+.brand{font-size:14px;margin:6px 0}
+.rate{font-size:14px;color:var(--mut);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.price{margin:12px 0 4px;font-size:30px;font-weight:600}
+.price small{font-size:14px;color:var(--mut);font-weight:400}
+.unit{font-size:13px;color:var(--mut)}
+.badge{display:inline-block;background:#fff4dc;color:#7a5410;border:1px solid #efd9a6;border-radius:4px;font-size:12px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+.var{margin:14px 0}
+.var .lab{font-size:14px;margin-bottom:6px}
+.var .lab b{font-weight:600}
+.sw{display:flex;flex-wrap:wrap;gap:6px}
+.sw button{border:1px solid #c9ccd1;background:#fff;border-radius:6px;cursor:pointer;font:inherit;font-size:14px;padding:6px 12px}
+.sw button.on{border:2px solid var(--acc);padding:5px 11px;background:#f0f7f4}
+.sw button img{width:52px;height:52px;object-fit:contain;display:block}
+.sw.col button{padding:3px}
+.sw.col button.on{padding:2px}
+ul.bul{margin:10px 0 0 18px}
+ul.bul li{margin:6px 0;font-size:14.5px}
+h2{font-size:19px;font-weight:600;margin:6px 0 10px}
+/* Kaufbox */
+.box{border:1px solid var(--line);border-radius:10px;padding:16px;position:sticky;top:12px}
+.box .price{font-size:26px;margin-top:0}
+.box p{font-size:14px;margin:8px 0}
+.box .ok{color:var(--acc);font-weight:600}
+.box select{font:inherit;padding:6px;border-radius:6px;border:1px solid #c9ccd1;width:100%;margin:6px 0 10px;background:var(--bg)}
+.btn{display:block;width:100%;border:0;border-radius:999px;padding:10px;font:600 15px "Source Sans 3",sans-serif;cursor:pointer;margin:8px 0}
+.btn.a{background:#e3c47e}
+.btn.b{background:#c98c2e;color:#fff}
+.box table{font-size:13px;color:var(--mut);margin-top:10px;border-collapse:collapse;width:100%}
+.box td{padding:2px 0}
+.box td:last-child{color:var(--ink)}
+/* Unterteil */
+.sec{border-top:1px solid var(--line);margin-top:34px;padding-top:24px}
+.aplus img{width:100%;display:block;border-radius:6px}
+.aplus .hero{position:relative}
+.aplus .hero .cap{position:absolute;left:5%;top:12%;color:#fff;max-width:46%}
+.aplus .hero .cap h3{font-size:clamp(20px,3vw,38px);line-height:1.1;font-weight:700}
+.aplus .hero .cap p{font-size:clamp(13px,1.4vw,18px);margin-top:10px;color:#f1d48e}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.cols h4{font-size:16px;margin:8px 0 4px}
+.cols p{font-size:14px;color:#33373d}
+table.cmp{border-collapse:collapse;width:100%;margin-top:12px;font-size:14px}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:8px;text-align:center}
+table.cmp th{background:var(--bg);font-weight:600}
+table.info{border-collapse:collapse;width:100%;max-width:760px;font-size:14px}
+table.info th{background:var(--bg);text-align:left;font-weight:600;width:42%;padding:8px 12px;border-bottom:1px solid var(--line)}
+table.info td{padding:8px 12px;border-bottom:1px solid var(--line)}
+.note{font-size:13px;color:var(--mut)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(120px);background:#2b2f35;color:#fff;padding:10px 18px;border-radius:999px;transition:.3s;font-size:14px}
+.toast.show{transform:translateX(-50%)}
+@media(max-width:1000px){.main{grid-template-columns:1fr}.gal,.box{position:static}.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="draft"><span><b>ENTWURF</b> · Vorschau, wie die Produktseite in einem Online-Marktplatz aussehen könnte · keine Seite eines Marktplatzbetreibers · kein Kauf möglich</span><span>Ebbing Project GmbH · Stand 21.11.2026</span></div>
+<div class="top"><div class="logo">Markt<span>platz</span> · Vorschau</div><div class="search">Christbaumschmuck lustig</div></div>
+<div class="crumb">Küche, Haushalt &amp; Wohnen › Saisonale Dekoration › Weihnachten › Christbaumschmuck</div>
+<div class="wrap">
+<div class="main">
+  <!-- Galerie -->
+  <div>
+    <div class="gal"><div class="thumbs" id="thumbs"></div><div><div class="big"><img id="big" alt=""></div><div class="zoomhint">Bild anklicken, um durch die Galerie zu blättern</div></div></div>
+  </div>
+  <!-- Info -->
+  <div>
+    <h1 id="title"></h1>
+    <div class="brand">Marke: <a href="index.html">Christbaumpoller</a> · Besuchen Sie den Markenshop</div>
+    <div class="rate">Noch keine Bewertungen</div>
+    <div class="price" id="price"></div>
+    <div class="unit" id="unit"></div>
+    <div class="var"><div class="lab">Farbe: <b id="vFarbe"></b></div><div class="sw col" id="swFarbe"></div></div>
+    <div class="var"><div class="lab">Größe: <b id="vGr"></b></div><div class="sw" id="swGr"></div></div>
+    <div class="var"><div class="lab">Packungsgröße: <b id="vPk"></b></div><div class="sw" id="swPk"></div></div>
+    <h2 style="margin-top:18px">Info zu diesem Artikel</h2>
+    <ul class="bul">
+      <li><b>EIN STÜCK SICHERHEITSGEFÜHL FÜR ZU HAUSE</b> – Christbaumschmuck in Form des bekannten Beton-Sperrblocks vom Weihnachtsmarkt, mit Pinselschrift „#wirschaffendas“. Der Hingucker am Baum und das Gesprächsthema am Festtagstisch.</li>
+      <li><b>DETAILGETREU</b> – glatter Block mit zwei durchgehenden Staplertaschen, Transportankern oben, Messingöse und vormontiertem goldenem Satinband (Schlaufe 12 cm). Sofort aufhängbar.</li>
+      <li><b>36 VARIANTEN</b> – Gold, Silber oder Rot · glänzend oder matt · mit oder ohne Schnee · Größe S (5 cm), M (7 cm) oder L (9 cm). Jede Packung enthält eine Variante.</li>
+      <li><b>FESTLICH VERPACKT</b> – einzeln in der Geschenkschachtel „Die Einzelmaßnahme“ mit Sichtfenster, ab 10 Stück in der 10er-Schachtel „Sicherheitskonzept für Ihr Wohnzimmer“. Ideal zum Wichteln, für Weihnachtsfeiern, Vereine und Firmen; ab 100 Stück mit persönlicher Gravur.</li>
+      <li><b>HINWEIS</b> – Dekoartikel für Erwachsene, kein Spielzeug. Enthält Kleinteile – nicht für Kinder unter 3 Jahren. Satire-Kollektion von Ebbing Project.</li>
+    </ul>
+  </div>
+  <!-- Kaufbox -->
+  <div class="box">
+    <div class="price" id="bprice"></div>
+    <p class="note">inkl. MwSt. · Versandkosten: Angaben folgen</p>
+    <p>Lieferung: <b>Vorbestellung</b> – Liefertermin wird nach der ersten Auflage bekannt gegeben.</p>
+    <p class="ok">Vorbestellbar</p>
+    <label class="note" for="qty">Menge</label>
+    <select id="qty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+    <button class="btn a" id="cart">In den Einkaufswagen</button>
+    <button class="btn b" id="buy">Jetzt kaufen</button>
+    <table><tr><td>Versand</td><td>Ebbing Project GmbH</td></tr><tr><td>Verkäufer</td><td>Ebbing Project GmbH</td></tr><tr><td>Rückgaben</td><td>30 Tage (Entwurf)</td></tr><tr><td>Zahlung</td><td>Sichere Transaktion</td></tr></table>
+  </div>
+</div>
+
+<!-- Markeninhalt -->
+<div class="sec aplus">
+  <h2>Produktbeschreibung des Herstellers</h2>
+  <div class="hero"><img src="img/listing/am-baum.webp" alt="Christbaumpoller am Weihnachtsbaum" style="max-height:520px;object-fit:cover;object-position:center 40%"><div class="cap"><h3>Was uns draußen schützt,<br>ist längst Tradition.</h3><p>Jetzt auch für Ihren Baum. #wirschaffendas</p></div></div>
+  <div class="cols">
+    <div><img src="img/listing/staplertaschen.webp" alt="Staplertaschen"><h4>Mit echten Staplertaschen</h4><p>Zwei durchgehende Taschen an der Unterseite – das Detail, an dem jeder den Sperrblock sofort erkennt.</p></div>
+    <div><img src="img/listing/verpackung-einzel.webp" alt="Einzelschachtel"><h4>„Die Einzelmaßnahme“</h4><p>Geschenkschachtel mit Kirchenfenster und Kopfkarte. „Fürchtet euch nicht.“ – Lukas 2,10. Siegel: geprüft nach Gefühl.</p></div>
+    <div><img src="img/listing/verpackung-10er.webp" alt="10er-Schachtel geöffnet"><h4>„Sicherheitskonzept für Ihr Wohnzimmer“</h4><p>10-teilig, behördlich nicht abgenommen. Zehn Poller in zwei Reihen – die Zufahrtssperre für unter den Baum.</p></div>
+  </div>
+  <div class="cols" style="grid-template-columns:1fr 2fr;align-items:center">
+    <div><img src="img/listing/groessen.webp" alt="Größen S M L"></div>
+    <div><h4>Drei Größen für jeden Ast</h4>
+      <table class="cmp" id="cmp"></table>
+      <p class="note" style="margin-top:8px">Preise je Packung inkl. MwSt. Ab 100 Stück mit persönlicher Gravur oder eigenem Schriftzug.</p></div>
+  </div>
+</div>
+
+<div class="sec"><h2>Produktinformationen</h2>
+  <table class="info" id="info"></table>
+  <p class="note" style="margin-top:10px">Angaben mit „folgt“ werden nach Musterfreigabe und Herstellerauswahl ergänzt.</p>
+</div>
+<div class="sec"><h2>Sicherheitsinformationen</h2>
+  <p>Dekoartikel, kein Spielzeug. Enthält Kleinteile – nicht für Kinder unter 3 Jahren. Nicht in der Nähe offener Flammen aufhängen.</p>
+  <p class="note" style="margin-top:6px">Hersteller / verantwortliche Person in der EU: Ebbing Project GmbH, Marienthaler Str. 44a, 46348 Raesfeld, Deutschland, info@ebbing-project.de</p>
+</div>
+<div class="sec"><h2>Kundenrezensionen</h2><p class="note">Für diesen Artikel gibt es noch keine Bewertungen.</p></div>
+<div class="sec note">Entwurf von Ebbing Project · <a href="index.html">zur Produktseite Christbaumpoller</a> · Diese Vorschau dient nur der Abstimmung und ist keine Seite eines Marktplatzbetreibers.</div>
+</div>
+<div class="toast" id="toast">Vorschau – hier ist kein Kauf möglich.</div>
+
+<script>
+const PR={S:{1:2.99,10:24.99,20:39.99,30:49.99,100:149.99},M:{1:3.49,10:28.99,20:46.99,30:57.99,100:174.99},L:{1:3.99,10:32.99,20:53.99,30:66.99,100:199.99}};
+const GR={S:{cm:5,mm:'50 × 25 × 23 mm',g:'max. 12 g'},M:{cm:7,mm:'70 × 35 × 32 mm',g:'max. 30 g'},L:{cm:9,mm:'90 × 45 × 41 mm',g:'max. 55 g'}};
+const FARBEN=[];['gold','silber','rot'].forEach(f=>['glanz','matt'].forEach(o=>['','-schnee'].forEach(s=>FARBEN.push(f+'-'+o+s))));
+const NAME=k=>{const [f,o,s]=k.split('-');return ({gold:'Gold',silber:'Silber',rot:'Rot'})[f]+' '+(o==='glanz'?'glänzend':'matt')+(s?' mit Schnee':'')};
+const CODE=k=>{const [f,o,s]=k.split('-');return 'CBP-'+({gold:'GO',silber:'SI',rot:'RD'})[f]+'-'+(o==='glanz'?'GL':'MT')+'-'+(s?'S1':'S0')};
+const st={farbe:'gold-glanz',gr:'S',pk:1};   // Voreinstellung: Gold glänzend, Größe S, 1 Stück
+const eur=v=>v.toFixed(2).replace('.',',')+' €';
+let gi=0;
+function gallery(){return ['img/listing/main-'+st.farbe+'.webp','img/listing/groessen.webp','img/listing/staplertaschen.webp','img/listing/am-baum.webp','img/listing/verpackung-einzel.webp','img/listing/verpackung-10er.webp']}
+function render(){
+  const g=gallery(),p=PR[st.gr][st.pk];
+  document.getElementById('thumbs').innerHTML=g.map((s,i)=>`<img src="${s}" data-i="${i}" class="${i===gi?'on':''}" alt="">`).join('');
+  document.getElementById('big').src=g[gi];
+  document.querySelectorAll('#thumbs img').forEach(t=>t.onmouseenter=t.onclick=()=>{gi=+t.dataset.i;render()});
+  const pk=st.pk===1?'Einzelstück':st.pk+'er-Set';
+  document.getElementById('title').textContent=`Christbaumpoller – Weihnachtsbaum-Anhänger in Form eines Beton-Sperrblocks, #wirschaffendas, ${NAME(st.farbe)}, Größe ${st.gr} (${GR[st.gr].cm} cm), ${pk} – lustiger Christbaumschmuck mit Messingöse und Satinband`;
+  document.getElementById('price').innerHTML=eur(p)+' <small>inkl. MwSt.</small>'+(st.pk>1?`<span class="badge">${Math.round((1-p/(PR[st.gr][1]*st.pk))*100)} % gegenüber Einzelkauf</span>`:'');
+  document.getElementById('unit').textContent='('+eur(p/st.pk)+' / Stück)'+(st.pk===100?' · inkl. persönlicher Gravur':'');
+  document.getElementById('bprice').textContent=eur(p);
+  document.getElementById('vFarbe').textContent=NAME(st.farbe);
+  document.getElementById('vGr').textContent=st.gr+' ('+GR[st.gr].cm+' cm)';
+  document.getElementById('vPk').textContent=st.pk===1?'1 Stück (Einzelschachtel)':st.pk+' Stück ('+(st.pk/10)+' × 10er-Schachtel)';
+  document.getElementById('swFarbe').innerHTML=FARBEN.map(k=>`<button data-v="${k}" class="${k===st.farbe?'on':''}" title="${NAME(k)}"><img src="img/listing/main-${k}.webp" alt="${NAME(k)}"></button>`).join('');
+  document.getElementById('swGr').innerHTML=['S','M','L'].map(k=>`<button data-v="${k}" class="${k===st.gr?'on':''}">${k} · ${GR[k].cm} cm</button>`).join('');
+  document.getElementById('swPk').innerHTML=[1,10,20,30,100].map(k=>`<button data-v="${k}" class="${k===st.pk?'on':''}">${k===1?'1 Stück':k+' Stück'}<br><small>${eur(PR[st.gr][k])}</small></button>`).join('');
+  document.querySelectorAll('#swFarbe button').forEach(b=>b.onclick=()=>{st.farbe=b.dataset.v;gi=0;render()});
+  document.querySelectorAll('#swGr button').forEach(b=>b.onclick=()=>{st.gr=b.dataset.v;render()});
+  document.querySelectorAll('#swPk button').forEach(b=>b.onclick=()=>{st.pk=+b.dataset.v;render()});
+  document.getElementById('cmp').innerHTML='<tr><th>Größe</th><th>Maße</th><th>1 Stück</th><th>10er</th><th>20er</th><th>30er</th><th>100 inkl. Gravur</th></tr>'+
+    ['S','M','L'].map(k=>`<tr><td><b>${k}</b></td><td>${GR[k].mm}</td>${[1,10,20,30,100].map(n=>`<td>${eur(PR[k][n])}</td>`).join('')}</tr>`).join('');
+  const rows=[['Marke','Christbaumpoller'],['Hersteller','Ebbing Project GmbH'],['Modellnummer',CODE(st.farbe)+'-'+st.gr],['Farbe',NAME(st.farbe)],['Größe',st.gr+' – '+GR[st.gr].mm],
+    ['Gewicht',GR[st.gr].g+' (inkl. Öse und Band)'],['Packungsgröße',st.pk===1?'1 Stück':st.pk+' Stück'],['Material','folgt (Muster in Prüfung)'],['Anlass','Weihnachten, Advent, Wichteln, Firmenfeier'],
+    ['Aufhängung','Messingöse, goldenes Satinband 3 mm, Schlaufe 12 cm'],['EAN','folgt'],['Herkunftsland','folgt'],['Erhältlich ab','Vorbestellung']];
+  document.getElementById('info').innerHTML=rows.map(r=>`<tr><th>${r[0]}</th><td>${r[1]}</td></tr>`).join('');
+}
+document.getElementById('big').onclick=()=>{gi=(gi+1)%gallery().length;render()};
+['cart','buy'].forEach(id=>document.getElementById(id).onclick=()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)});
+render();
+</script>
+</body>
+</html>
