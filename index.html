@@ -123,13 +123,40 @@ footer{padding:50px 0 70px;border-top:1px solid #2a2d33;color:var(--mut);font-si
 footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--or);color:#1B1E22;padding:12px 22px;border-radius:999px;font-weight:700;transition:.3s;z-index:30}
 .toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Verpackung */
+.packs{display:grid;grid-template-columns:1fr 1.25fr;gap:26px;margin-top:50px}
+.pk{background:linear-gradient(180deg,#2a2d33,#202328);border-radius:18px;border:1px solid rgba(176,141,87,.25);overflow:hidden;display:flex;flex-direction:column}
+.pk img{width:100%;aspect-ratio:16/11;object-fit:cover;background:#140e0c}
+.pk .tx{padding:24px 26px 28px}
+.pk h3{font-size:24px;margin-bottom:4px}
+.pk .sub{color:var(--or2);font-family:Lora,serif;font-style:italic;margin-bottom:12px}
+.pk p{color:var(--cream);font-size:16px}
+.pk ul{margin:12px 0 0 18px;color:var(--cream);font-size:15px}
+.pk .tog{display:flex;gap:8px;margin:0 26px;transform:translateY(-22px);position:relative;z-index:2}
+.pk .tog .chip{background:rgba(21,23,26,.85);padding:7px 14px;font-size:14px}
+.pk .tog .chip.on{background:rgba(176,141,87,.35)}
+@media(max-width:860px){.packs{grid-template-columns:1fr}}
+.v3wrap{margin-top:46px;background:radial-gradient(ellipse at 50% 40%,rgba(176,141,87,.22),transparent 60%),#121417;border-radius:20px;border:1px solid rgba(176,141,87,.22);padding:18px 18px 22px}
+.v3bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.v3bar .sep{width:1px;height:26px;background:#3a3e45;margin:0 6px}
+.v3bar .chip{padding:8px 14px;font-size:14px}
+.v3{position:relative;height:520px;perspective:1600px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+.v3:active{cursor:grabbing}
+.v3 .obj{position:absolute;left:50%;top:52%;width:0;height:0;transform-style:preserve-3d}
+.v3 .f{position:absolute;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#7d1019 center/100% 100% no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.v3 .f.kopf{background-color:transparent;box-shadow:none}
+.v3 .f.kopfb{background:#8a1420;border-radius:10px 10px 0 0}
+.v3 .shadow{position:absolute;left:50%;top:50%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);transform-style:preserve-3d}
+.v3hint{text-align:center;color:var(--mut);font-size:14px;margin-top:6px}
+@media(max-width:860px){.v3{height:400px}}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><img src="img/ep.png" alt="Ebbing Project">Christbaumpoller</a>
-  <nav><a href="#geschichte">Geschichte</a><a href="#film">Film</a><a href="#kollektion">Kollektion</a><a href="#sets">Sets</a><a href="#fragen">Fragen</a><a class="cta" href="#wunschzettel">Wunschzettel</a></nav>
+  <nav><a href="#geschichte">Geschichte</a><a href="#film">Film</a><a href="#kollektion">Kollektion</a><a href="#sets">Sets</a><a href="#verpackung">Verpackung</a><a href="#fragen">Fragen</a><a class="cta" href="#wunschzettel">Wunschzettel</a></nav>
 </div></header>
 
 <section class="hero">
@@ -227,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 <section id="sets">
   <div class="wrap">
     <div class="center"><div class="eyebrow">Packs &amp; Mengenrabatt</div><h2>Mehr Sicherheit. Weniger pro Stück.</h2>
-    <p class="intro">Größe, Farbe und Variante wählen – die Preise unten passen sich an. Alle Poller eines Packs sind gleich.</p></div>
+    <p class="intro">Größe, Farbe und Variante wählen – die Preise unten passen sich an. Alle Poller eines Packs sind gleich. Einzeln kommt der Poller in der Einzelschachtel, ab 10 Stück in der <a href="#verpackung">10er-Schachtel</a>: 20 Stück sind zwei, 30 Stück drei und 100 Stück zehn 10er-Schachteln.</p></div>
     <div class="packsel">
       <img id="packImg" src="img/gold-glanz.webp" alt="">
       <div>
@@ -239,13 +266,45 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     </div>
     <div class="center packfor" id="packFor">Preise für Größe M · Gold glänzend</div>
     <div class="sets four">
-      <div class="set"><h3>Einzeln</h3><p>Für den ersten Versuch am eigenen Baum.</p><div class="p" id="pp1">3,49 €</div><p id="pi1">pro Stück</p><button class="btn line set-add" data-n="1">Einzeln auf den Wunschzettel</button></div>
-      <div class="set"><h3>Kleine Absperrung</h3><p>10 Stück</p><div class="p" id="pp10">28,99 €</div><p id="pi10"></p><button class="btn gold set-add" data-n="10">10er-Pack auf den Wunschzettel</button></div>
-      <div class="set"><h3>Weihnachtsmarkt-Zufahrt</h3><p>20 Stück</p><div class="p" id="pp20">40,99 €</div><p id="pi20"></p><button class="btn gold set-add" data-n="20">20er-Pack auf den Wunschzettel</button></div>
-      <div class="set"><h3>Komplette Zufahrtssicherung</h3><p>30 Stück</p><div class="p" id="pp30">46,99 €</div><p id="pi30"></p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
+      <div class="set"><h3>Einzeln</h3><p>Für den ersten Versuch am eigenen Baum. In der Einzelschachtel.</p><div class="p" id="pp1">3,49 €</div><p id="pi1">pro Stück</p><button class="btn line set-add" data-n="1">Einzeln auf den Wunschzettel</button></div>
+      <div class="set"><h3>Kleine Absperrung</h3><p>10 Stück · eine 10er-Schachtel</p><div class="p" id="pp10">28,99 €</div><p id="pi10"></p><button class="btn gold set-add" data-n="10">10er-Pack auf den Wunschzettel</button></div>
+      <div class="set"><h3>Weihnachtsmarkt-Zufahrt</h3><p>20 Stück · zwei 10er-Schachteln</p><div class="p" id="pp20">40,99 €</div><p id="pi20"></p><button class="btn gold set-add" data-n="20">20er-Pack auf den Wunschzettel</button></div>
+      <div class="set"><h3>Komplette Zufahrtssicherung</h3><p>30 Stück · drei 10er-Schachteln</p><div class="p" id="pp30">46,99 €</div><p id="pi30"></p><button class="btn gold set-add" data-n="30">30er-Pack auf den Wunschzettel</button></div>
     </div>
     <div class="set" style="margin-top:24px;text-align:center"><h3>Ab 100 Stück: Ihre persönliche Gravur oder Ihr eigener Schriftzug inklusive</h3><p>Für Firmen, Vereine, Weihnachtsfeiern und Stadtverwaltungen mit Humor. Ab 100 Stück bekommt ein Poller Ihre persönliche Gravur oder Ihren eigenen Schriftzug, zum Beispiel Ihren Namen, Ihre Stadt oder Ihren eigenen Hashtag. Im Preis enthalten.</p>
-      <div class="p" id="pp100">100 Stück: 174,99 €</div><p>S 149,99 € · M 174,99 € · L 199,99 € – persönliche Gravur oder Schriftzug inklusive</p><button class="btn gold set-add" data-n="100" style="align-self:center">100 Stück auf den Wunschzettel</button></div>
+      <div class="p" id="pp100">100 Stück: 174,99 €</div><p>S 149,99 € · M 174,99 € · L 199,99 € – persönliche Gravur oder Schriftzug inklusive · geliefert in zehn 10er-Schachteln</p><button class="btn gold set-add" data-n="100" style="align-self:center">100 Stück auf den Wunschzettel</button></div>
+  </div>
+</section>
+
+
+<section id="verpackung" class="alt">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Verpackung</div><h2>Festlich verpackt.<br>Behördlich nicht abgenommen.</h2>
+    <p class="intro">Rot, Gold, Schleife, Glitzer – wie jedes ordentliche Weihnachtsgeschenk im Regal. Erst beim zweiten Hinsehen merkt man, was draufsteht. Es gibt genau zwei Verpackungen: die Einzelschachtel und die 10er-Schachtel. Wer 20, 30 oder 100 Stück bestellt, bekommt zwei, drei oder zehn 10er-Schachteln.</p></div>
+    <div class="packs">
+      <div class="pk">
+        <img loading="lazy" src="img/pack/einzel.webp" alt="Einzelschachtel Die Einzelmaßnahme mit Kirchenfenster">
+        <div class="tx"><h3>Die Einzelmaßnahme</h3><div class="sub">„Fürchtet euch nicht.“ – Lukas 2,10</div>
+          <p>Der Poller steht hinter einem goldenen Kirchenfenster, im Strahlenkranz, wie es sich für eine Reliquie gehört. Oben die Kopfkarte zum Aufhängen im Regal.</p>
+          <ul><li>Siegel: geprüft nach Gefühl</li><li>Oben: „Hier öffnen. Ohne Genehmigung.“</li><li>Hinten: Gebrauchsinformation – mindestens haltbar bis Ende der Gefährdungslage</li></ul></div>
+      </div>
+      <div class="pk">
+        <img loading="lazy" id="pk10img" src="img/pack/zehner-zu.webp" alt="10er-Schachtel Sicherheitskonzept für Ihr Wohnzimmer">
+        <div class="tog"><button class="chip on" data-img="img/pack/zehner-zu.webp">Geschlossen</button><button class="chip" data-img="img/pack/zehner-offen.webp">Geöffnet</button></div>
+        <div class="tx" style="padding-top:0"><h3>Sicherheitskonzept für Ihr Wohnzimmer</h3><div class="sub">„Macht hoch die Tür, die Tor macht weit … wir sperren trotzdem ab.“</div>
+          <p>10-teilig, behördlich nicht abgenommen. Zehn Poller in zwei Reihen, aufgestellt wie eine Zufahrtssperre. Hinten die Aufbauanleitung samt Genehmigungsvermerk: beantragt nein, in Prüfung nein, gefühlt ja.</p>
+          <ul><li>Vorne auf der Schale: „Bitte Rettungsgasse zum Plätzchenteller freihalten.“</li><li>Je Schachtel eine Variante – die bunte Mischung zeigt nur, was es gibt.</li></ul></div>
+      </div>
+    </div>
+    <div class="v3wrap">
+      <div class="v3bar">
+        <button class="chip on" data-box="e">Einzelschachtel</button><button class="chip" data-box="z">10er-Schachtel</button>
+        <span class="sep"></span>
+        <button class="chip" data-view="front">Vorne</button><button class="chip" data-view="back">Hinten</button><button class="chip" data-view="top">Oben</button><button class="chip" data-view="bottom">Unten</button><button class="chip" data-view="side">Seite</button>
+      </div>
+      <div class="v3" id="v3"><div class="shadow" id="v3sh"></div><div class="obj" id="v3obj"></div></div>
+      <div class="v3hint">Ziehen zum Drehen · Mausrad oder zwei Finger zum Zoomen · Doppelklick setzt zurück</div>
+    </div>
   </div>
 </section>
 
@@ -263,6 +322,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     <details><summary>Hält mein Baum das aus?</summary><p>Größe S und M hängen an jedem normalen Zweig. Für L empfehlen wir einen kräftigen Ast weiter innen, so wie im echten Leben: Der Poller steht da, wo es drauf ankommt.</p></details>
     <details><summary>Warum steht „#wirschaffendas“ drauf?</summary><p>Weil es auf die Blöcke gehört wie der Stadtname. Und weil wir es schaffen. Jedes Jahr wieder.</p></details>
     <details><summary>Bekomme ich ihn noch vor Heiligabend?</summary><p>Die erste Auflage ist begrenzt. Wer bis zum 2. Advent vorbestellt, bekommt bevorzugt geliefert. Die genauen Liefertermine nennen wir mit der Bestätigung.</p></details>
+    <details><summary>Wie wird verpackt?</summary><p>Einzeln in der Einzelschachtel „Die Einzelmaßnahme“, ab 10 Stück in der 10er-Schachtel „Sicherheitskonzept für Ihr Wohnzimmer“. 20, 30 oder 100 Stück kommen in zwei, drei oder zehn 10er-Schachteln. Alles recyclebarer Karton, festlich bedruckt.</p></details>
     <details><summary>Ist das Spielzeug?</summary><p>Nein. Dekoration für Erwachsene. Kleinteile, nicht für Kinder unter 3 Jahren geeignet.</p></details>
   </div>
 </section>
@@ -271,7 +331,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
   <div class="wrap">
     <div class="eyebrow">Wunschzettel</div>
     <h2>Jetzt vorbestellen.</h2>
-    <p class="intro">Wir starten mit einer kleinen Auflage. Schicken Sie uns Ihren Wunschzettel, wir melden uns mit Bestätigung, Liefertermin und Zahlungsinfo. Noch zahlen Sie nichts.</p>
+    <p class="intro">Wir starten mit einer kleinen Auflage. Schicken Sie uns Ihren Wunschzettel, wir melden uns mit Bestätigung, Liefertermin und Zahlungsinfo. Noch zahlen Sie nichts. 20, 30 und 100 Stück kommen in zwei, drei bzw. zehn 10er-Schachteln.</p>
     <form id="order" onsubmit="return sendOrder(event)">
       <div id="wunsch">Noch leer. Wählen Sie oben Ihre Poller aus.</div>
       <input id="oname" placeholder="Ihr Name" required>
@@ -343,7 +403,8 @@ const grid=document.getElementById('grid');
 // Wunschzettel: jede Zeile mit eigener Größe, Menge und Preis
 const liste=[];
 function text(){const n=liste.reduce((a,z)=>a+z.q,0),sum=Math.round(liste.reduce((a,z)=>a+z.p,0)*100)/100;
-  return {n,sum,grav:liste.some(z=>z.q>=100),zeilen:liste.map(z=>z.q+' × Christbaumpoller '+z.t+' – '+eur(z.p))}}
+  return {n,sum,grav:liste.some(z=>z.q>=100),zeilen:liste.map(z=>z.q+' × Christbaumpoller '+z.t+' – '+eur(z.p)+' · '+verp(z.q))}}
+function verp(q){const z=Math.floor(q/10),e=q%10,t=[];if(z)t.push(z===1?'eine 10er-Schachtel':z+' × 10er-Schachtel');if(e)t.push(e===1?'eine Einzelschachtel':e+' × Einzelschachtel');return t.join(' + ')}
 function add(q){const g=st.groesse;liste.push({t:label(),q,p:summe(q,g)});const x=text(),w=document.getElementById('wunsch');
   w.innerHTML=x.zeilen.map(z=>'• '+z).join('<br>')+'<br><b>'+x.n+' Stück · Summe '+eur(x.sum)+'</b>'+(x.grav?'<br>Persönliche Gravur oder eigener Schriftzug auf einem Poller: inklusive – Wunschtext bitte unten in die Nachricht.':'');
   const t2=document.getElementById('toast');t2.classList.add('show');setTimeout(()=>t2.classList.remove('show'),1600)}
@@ -355,6 +416,50 @@ function sendOrder(e){e.preventDefault();
   const x=text();
   const body='Wunschzettel Christbaumpoller\n\n'+x.zeilen.map(z=>'- '+z).join('\n')+'\n\n'+x.n+' Stück\nSumme: '+eur(x.sum)+(x.grav?'\nPersönliche Gravur oder eigener Schriftzug inklusive (ab 100 Stück)':'')+'\n\nName: '+document.getElementById('oname').value+'\nOrt: '+document.getElementById('oort').value+'\n\n'+document.getElementById('omsg').value;
   location.href='mailto:info@ebbing-project.de?subject='+encodeURIComponent('Wunschzettel Christbaumpoller')+'&body='+encodeURIComponent(body);return false}
+
+// Verpackung: Bildumschalter 10er
+document.querySelectorAll('.pk .tog .chip').forEach(b=>b.onclick=()=>{b.parentNode.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');document.getElementById('pk10img').src=b.dataset.img});
+// 3D-Viewer (CSS 3D, ohne Bibliothek)
+(function(){
+  const stage=document.getElementById('v3'),obj=document.getElementById('v3obj'),sh=document.getElementById('v3sh');
+  const BOX={e:{B:74,T:36,H:60,K:30,p:'e'},z:{B:378,T:77,H:53,K:0,p:'z'}};
+  let cur='e',rx=-18,ry=-32,zoom=1,auto=true,base=4,loaded=false;
+  function face(cls,w,h,tf,img){const d=document.createElement('div');d.className='f '+cls;d.style.width=w+'px';d.style.height=h+'px';
+    d.style.marginLeft=(-w/2)+'px';d.style.marginTop=(-h/2)+'px';d.style.transform=tf;if(img)d.dataset.bg=img;obj.appendChild(d);return d}
+  function build(){obj.innerHTML='';const b=BOX[cur],sw=stage.clientWidth,shh=stage.clientHeight;
+    base=Math.min(sw*(cur==='e'?0.42:0.66)/b.B,shh*0.52/(b.H+b.K));const s=base,B=b.B*s,T=b.T*s,H=b.H*s,K=b.K*s,p='img/pack/3d/'+b.p;
+    face('',B,H,`translateY(${K/2}px) translateZ(${T/2}px)`,p+'-front.webp');
+    face('',B,H,`translateY(${K/2}px) rotateY(180deg) translateZ(${T/2}px)`,p+'-back.webp');
+    face('',T,H,`translateY(${K/2}px) rotateY(90deg) translateZ(${B/2}px)`,p+'-right.webp');
+    face('',T,H,`translateY(${K/2}px) rotateY(-90deg) translateZ(${B/2}px)`,p+'-left.webp');
+    face('',B,T,`translateY(${K/2-H/2}px) rotateX(90deg)`,p+'-top.webp');
+    face('',B,T,`translateY(${K/2+H/2}px) rotateX(-90deg)`,p+'-bottom.webp');
+    if(b.K){face('kopf',B,K,`translateY(${K/2-H/2-K/2}px) translateZ(${-T/2+0.6}px)`,p+'-kopf.webp');
+      face('kopfb',B,K,`translateY(${K/2-H/2-K/2}px) translateZ(${-T/2+0.3}px) rotateY(180deg)`,null)}
+    sh.style.width=(B*1.5)+'px';sh.style.height=(T*1.6+40)+'px';sh.style.marginLeft=(-B*0.75)+'px';
+    if(loaded)load();draw()}
+  function load(){loaded=true;obj.querySelectorAll('.f[data-bg]').forEach(f=>f.style.backgroundImage=`url(${f.dataset.bg})`)}
+  function draw(){obj.style.transform=`scale(${zoom}) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    const b=BOX[cur];sh.style.transform=`translateY(${(b.H/2+12)*base*zoom}px) scale(${zoom}) scaleY(.35)`;sh.style.opacity=Math.max(0,Math.cos(rx*Math.PI/180))}
+  const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){load();io.disconnect()}},{rootMargin:'400px'});io.observe(stage);
+  // Ziehen, Mausrad, Zwei-Finger-Zoom
+  const pts=new Map();let last=null,pinch=0;
+  stage.addEventListener('pointerdown',e=>{stage.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);auto=false;
+    if(pts.size===1)last=[e.clientX,e.clientY];if(pts.size===2){const [a,b]=[...pts.values()];pinch=Math.hypot(a[0]-b[0],a[1]-b[1])}});
+  stage.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,[e.clientX,e.clientY]);
+    if(pts.size===2){const [a,b]=[...pts.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(pinch){zoom=Math.min(4,Math.max(.5,zoom*d/pinch))}pinch=d;draw();return}
+    if(last){ry+=(e.clientX-last[0])*0.45;rx-=(e.clientY-last[1])*0.45;last=[e.clientX,e.clientY];draw()}});
+  const up=e=>{pts.delete(e.pointerId);pinch=0;last=pts.size===1?[...pts.values()][0]:null};
+  stage.addEventListener('pointerup',up);stage.addEventListener('pointercancel',up);
+  stage.addEventListener('wheel',e=>{e.preventDefault();auto=false;zoom=Math.min(4,Math.max(.5,zoom*Math.exp(-e.deltaY*0.0015)));draw()},{passive:false});
+  stage.addEventListener('dblclick',()=>{rx=cur==='z'?-30:-18;ry=-32;zoom=1;draw()});
+  const V={front:[-8,0],back:[-8,180],top:[-88,0],bottom:[88,0],side:[-10,-90]};
+  document.querySelectorAll('.v3bar [data-view]').forEach(b=>b.onclick=()=>{auto=false;[rx,ry]=V[b.dataset.view];draw()});
+  document.querySelectorAll('.v3bar [data-box]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.v3bar [data-box]').forEach(c=>c.classList.remove('on'));b.classList.add('on');cur=b.dataset.box;zoom=1;rx=cur==='z'?-30:-18;ry=-32;build()});
+  addEventListener('resize',build);
+  (function spin(){if(auto){ry+=0.12;draw()}requestAnimationFrame(spin)})();
+  build();
+})();
 </script>
 </body>
 </html>

@@ -116,6 +116,15 @@ Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel)
 - **Impressum, Datenschutz, Widerrufsbelehrung, AGB** auf der Seite (aktuell Platzhalter). Schriften sind schon lokal eingebunden (keine Google-Server).
 - **Umsatzsteuer und Buchhaltung** über die Ebbing Project GmbH, mit THP abstimmen.
 
+## 5a. Verpackung (20.11.2026, Rev. A)
+Zwei Verpackungen, mehr nicht. 10 Stück kommen in eine 10er-Schachtel, 20 in zwei, 30 in drei, 100 in zehn. Außen festlich wie jedes Weihnachtsgeschenk (Rot, Gold, gedruckte Schleife, Glitzer, Fraktur, Bibelvers), innen trockene Satire über Behörden und Sicherheitskonzepte – nie über Opfer.
+
+- **Einzelschachtel „Die Einzelmaßnahme“:** Kopfkarte mit Euroloch „Fürchtet euch nicht.“ (Lukas 2,10) · Kirchenfenster mit Strahlenkranz, Poller wie eine Reliquie · Siegel „geprüft nach Gefühl“ · oben „Hier öffnen. Ohne Genehmigung.“ · hinten Gebrauchsinformation („Hält den Weihnachtsmann nicht auf. Aber die Stimmung.“, „Mindestens haltbar bis Ende der Gefährdungslage“). Innen M 74 × 36 × 60 mm (mit Sockel 8, Öse 7, Bandbogen 8).
+- **10er „Sicherheitskonzept für Ihr Wohnzimmer – 10-teilig, behördlich nicht abgenommen“:** Deckel-Boden-Schachtel, Stegeinlage 2 × 5, Poller stehen wie eine Zufahrtssperre über dem niedrigen Rand · „Macht hoch die Tür, die Tor macht weit … wir sperren trotzdem ab.“ · hinten Aufbauanleitung mit Genehmigungsvermerk (☒ gefühlt) · Schale „Bitte Rettungsgasse zum Plätzchenteller freihalten.“ Schale innen M 376 × 75 × 16, Deckel 378 × 77 × 53 mm. Sparvariante: Klappdeckel.
+- **Produktion:** GC1 350/400 g, 4c + Pantone 871 C statt Heißfolie, Schleife nur gedruckt, Glitzer im Druck, Glitzerlack nur Option, PET-Fenster. Ein Druckbild für alle Varianten (Variante sieht man durchs Fenster, Artikelnummer per Etikett).
+- **Stückkosten nur geschätzt [S]** (China, ab Werk, ohne Fracht): Einzel M 0,14–0,25 € bei 5.000 Stk · 10er M 0,55–0,95 € bei 5.000 Stk · Stanzformen M ca. 300–750 € einmalig. Echte Preise kommen mit den Angeboten.
+- Seite: Abschnitt „Verpackung“ mit Mockups und 3D-Viewer (drehen, zoomen). Skripte: `quelle/pack/`.
+
 ## 6. Was im Repo liegt
 | Datei | Inhalt |
 |---|---|
@@ -124,6 +133,8 @@ Einstandspreis (optimierte Variante: nur M, matt, 6 Artikel, Kordel, Polybeutel)
 | `clips/` | Spots quer und hoch (Web-Fassung 720p) |
 | `KONZEPT.md` | dieses Konzept |
 | `quelle/` | Zeichen- und Render-Skripte (Python), damit Varianten und Clips jederzeit neu erzeugt werden können |
+| `img/pack/` | Verpackungs-Mockups und 3D-Flächen (`3d/e-*`, `3d/z-*`) |
+| `quelle/pack/` | Verpackungs-Skripte: Maße, Grafik, Mockups, Stanzkonturen, Export |
 
 ## 7. Nächste Schritte (Priorität)
 1. Spots heute Abend/morgen posten und Reaktionen messen, bevor Geld in Material geht.
