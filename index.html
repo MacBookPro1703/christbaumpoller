@@ -468,18 +468,18 @@ document.querySelectorAll('.pk .tog .chip').forEach(b=>b.onclick=()=>{b.parentNo
   build();
 })();
 
-// Hintergrundmusik „Feierliche Zufahrt“ (eigene Komposition) – Endlosschleife ohne Lücke (Web Audio), startet mit der ersten Berührung
+// Hintergrundmusik „Feierliche Zufahrt“, Fassung 3 Engelschor (eigene Komposition) – Endlosschleife ohne Lücke (Web Audio), startet mit der ersten Berührung
 (function(){
   const btn=document.getElementById('mus'),txt=document.getElementById('musT');
   let ctx=null,buf=null,src=null,gain=null,on=false,want=true,loading=null;
   try{if(localStorage.getItem('cbp-musik')==='aus')want=false}catch(e){}
   function ui(){btn.classList.toggle('on',on);txt.textContent=on?'Musik aus':'Musik an'}
   async function ensure(){if(buf)return;if(!loading)loading=(async()=>{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
-    const r=await fetch('audio/weihnacht.mp3?v=2');const a=await r.arrayBuffer();buf=await new Promise((ok,no)=>ctx.decodeAudioData(a,ok,no));
+    const r=await fetch('audio/weihnacht.mp3?v=3');const a=await r.arrayBuffer();buf=await new Promise((ok,no)=>ctx.decodeAudioData(a,ok,no));
     gain=ctx.createGain();gain.gain.value=0;gain.connect(ctx.destination)})();await loading}
   async function start(){try{await ensure();if(ctx.state==='suspended')await ctx.resume();if(on)return;
-    src=ctx.createBufferSource();src.buffer=buf;src.loop=true;src.loopStart=0;src.loopEnd=Math.min(48,buf.duration);src.connect(gain);src.start();
-    gain.gain.cancelScheduledValues(ctx.currentTime);gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(.4,ctx.currentTime+3.5);on=true;ui()}catch(e){}}
+    src=ctx.createBufferSource();src.buffer=buf;src.loop=true;src.loopStart=0;src.loopEnd=Math.min(64,buf.duration);src.connect(gain);src.start();
+    gain.gain.cancelScheduledValues(ctx.currentTime);gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(.5,ctx.currentTime+5);on=true;ui()}catch(e){}}
   function stop(){if(!on)return;const s=src;gain.gain.cancelScheduledValues(ctx.currentTime);gain.gain.setValueAtTime(gain.gain.value,ctx.currentTime);
     gain.gain.linearRampToValueAtTime(0,ctx.currentTime+.6);setTimeout(()=>{try{s.stop()}catch(e){}},700);on=false;ui()}
   btn.addEventListener('click',e=>{e.stopPropagation();want=!on;try{localStorage.setItem('cbp-musik',want?'an':'aus')}catch(err){}want?start():stop()});
