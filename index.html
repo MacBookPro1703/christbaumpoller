@@ -160,13 +160,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .mus .ic{width:22px;height:22px;display:grid;place-items:center;font-size:17px}
 .mus.on .ic{animation:mus 1.6s ease-in-out infinite}
 @keyframes mus{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+/* Am Baum – Stimmungsbilder */
+#ambaum{background:radial-gradient(ellipse at 50% 0%,rgba(176,141,87,.14),transparent 60%),#121418}
+.mood{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:50px}
+.mood figure{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;background:#111;border:1px solid rgba(176,141,87,.18)}
+.mood figure.big{grid-row:span 2}
+.mood img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.mood figure:hover img{transform:scale(1.04)}
+.mood figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));font-size:15px;color:var(--cream)}
+.mood figcaption b{color:var(--or2);font-weight:600}
+.moodnote{color:var(--mut);font-size:14px;margin-top:16px;text-align:center}
+@media(max-width:860px){.mood{grid-template-columns:1fr 1fr}.mood figure.big{grid-column:span 2;grid-row:auto}}
+.mlb{position:fixed;inset:0;background:rgba(8,9,11,.94);z-index:60;display:none;align-items:center;justify-content:center}
+.mlb.open{display:flex}
+.mlb img{max-width:92vw;max-height:84vh;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+.mlb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--cream);font-size:16px}
+.mlb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(176,141,87,.4);color:var(--or2);font-size:30px;width:52px;height:52px;border-radius:50%;cursor:pointer}
+.mlb .x{top:18px;right:18px;font-size:22px}.mlb .l{left:18px;top:50%}.mlb .r{right:18px;top:50%}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><img src="img/ep.png" alt="Ebbing Project">Christbaumpoller</a>
-  <nav><a href="#geschichte">Geschichte</a><a href="#film">Film</a><a href="#kollektion">Kollektion</a><a href="#sets">Sets</a><a href="#verpackung">Verpackung</a><a href="#fragen">Fragen</a><a class="cta" href="#wunschzettel">Wunschzettel</a><a class="tab" href="listing.html" title="Vorschau der Marktplatz-Produktseite">Amazon Preview</a></nav>
+  <nav><a href="#geschichte">Geschichte</a><a href="#ambaum">Am Baum</a><a href="#film">Film</a><a href="#kollektion">Kollektion</a><a href="#sets">Sets</a><a href="#verpackung">Verpackung</a><a href="#fragen">Fragen</a><a class="cta" href="#wunschzettel">Wunschzettel</a><a class="tab" href="listing.html" title="Vorschau der Marktplatz-Produktseite">Amazon Preview</a></nav>
 </div></header>
 
 <section class="hero">
@@ -199,6 +216,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     </div>
   </div>
 </section>
+
+<section id="ambaum">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Am Baum</div>
+      <h2>Zwischen Kugeln und Strohsternen.</h2>
+      <p class="intro">Da hängt er. Zwischen den Kugeln von Oma und den Strohsternen vom Basar, als wär er schon immer dabei gewesen. Erst schaut keiner hin. Und dann redet den ganzen Abend jeder drüber.</p>
+    </div>
+    <div class="mood" id="mood">
+      <figure class="big" data-i="0"><img loading="lazy" src="img/stimmung/s1.webp" alt="Christbaumpoller Gold glänzend am Zweig zwischen roten Kugeln"><figcaption><b>Gold glänzend · M</b> zwischen Kugel und Zapfen</figcaption></figure>
+      <figure data-i="1"><img loading="lazy" src="img/stimmung/s2.webp" alt="Christbaumpoller in Gold, Silber und Rot am goldenen Baum"><figcaption><b>Gold, Silber, Rot</b> am goldenen Baum</figcaption></figure>
+      <figure data-i="2"><img loading="lazy" src="img/stimmung/s3.webp" alt="Christbaumpoller Silber und Gold am dunklen Baum"><figcaption><b>Silber glänzend · Gold matt</b> edel am Kamin</figcaption></figure>
+      <figure data-i="3"><img loading="lazy" src="img/stimmung/s4.webp" alt="Christbaumpoller als Absperrung vor den Geschenken"><figcaption><b>Die Zufahrtssperre</b> vor den Geschenken</figcaption></figure>
+      <figure data-i="4"><img loading="lazy" src="img/stimmung/s5.webp" alt="Christbaumpoller Silber mit Schnee am grünen Zweig"><figcaption><b>Silber · frisch eingeschneit</b></figcaption></figure>
+    </div>
+    <p class="moodnote">Bildmontagen: Christbaumpoller maßstabsgetreu aus dem 3D-Modell in Fotos eingesetzt. Fotos echter Muster folgen.</p>
+  </div>
+</section>
+<div class="mlb" id="mlb"><button class="x" id="mlbx" aria-label="schließen">✕</button><button class="l" id="mlbl" aria-label="vorheriges Bild">‹</button><img id="mlbi" alt=""><button class="r" id="mlbr" aria-label="nächstes Bild">›</button><p id="mlbp"></p></div>
 
 <section id="film" class="alt">
   <div class="wrap center">
@@ -495,6 +531,17 @@ document.querySelectorAll('.pk .tog .chip').forEach(b=>b.onclick=()=>{b.parentNo
     v.addEventListener('pause',()=>{if(v._m&&want){v._m=0;start()}})});
   document.addEventListener('visibilitychange',()=>{if(!ctx)return;document.hidden?ctx.suspend():(on&&ctx.resume())});
   ui();
+})();
+
+/* Am Baum: Großansicht */
+(function(){const f=[...document.querySelectorAll('#mood figure')],L=document.getElementById('mlb');let k=0;
+ const show=()=>{const im=f[k].querySelector('img');document.getElementById('mlbi').src=im.src.replace('.webp','-gross.webp');document.getElementById('mlbi').alt=im.alt;document.getElementById('mlbp').innerHTML=f[k].querySelector('figcaption').innerHTML};
+ f.forEach((x,i)=>x.onclick=()=>{k=i;show();L.classList.add('open')});
+ const mv=d=>{k=(k+d+f.length)%f.length;show()};
+ document.getElementById('mlbl').onclick=e=>{e.stopPropagation();mv(-1)};document.getElementById('mlbr').onclick=e=>{e.stopPropagation();mv(1)};
+ document.getElementById('mlbx').onclick=()=>L.classList.remove('open');L.onclick=e=>{if(e.target===L)L.classList.remove('open')};
+ document.addEventListener('keydown',e=>{if(!L.classList.contains('open'))return;if(e.key==='Escape')L.classList.remove('open');if(e.key==='ArrowLeft')mv(-1);if(e.key==='ArrowRight')mv(1)});
+ let tx=null;L.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});L.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)mv(d<0?1:-1);tx=null});
 })();
 </script>
 </body>

@@ -65,6 +65,7 @@ button{font-family:inherit}
 @media(hover:none){.arr{opacity:1}}
 /* Info */
 h1{font-size:24px;font-weight:400;line-height:32px}
+.hlt{font-size:14px;color:var(--mut);margin:4px 0 2px;line-height:19px}
 .brand{font-size:14px;margin:4px 0}
 .rate{font-size:14px;color:var(--mut);padding-bottom:8px;border-bottom:1px solid #e7e7e7}
 .rate .st{color:#c8c8c8;letter-spacing:1px;margin-right:6px}
@@ -158,6 +159,7 @@ table.info td{padding:7px 12px;border-bottom:1px solid #e7e7e7}
   <!-- Info -->
   <div>
     <h1 id="title"></h1>
+    <div class="hlt" id="hlt"></div>
     <div class="brand">Marke: <a href="index.html">Christbaumpoller</a> · Besuchen Sie den Markenshop</div>
     <div class="rate"><span class="st">☆☆☆☆☆</span>Noch keine Bewertungen · <a href="#fragen">Fragen und Antworten</a></div>
     <div class="price" id="price"></div>
@@ -167,11 +169,11 @@ table.info td{padding:7px 12px;border-bottom:1px solid #e7e7e7}
     <div class="var"><div class="lab">Packungsgröße: <b id="vPk"></b></div><div class="sw" id="swPk"></div></div>
     <h2 class="s">Info zu diesem Artikel</h2>
     <ul class="bul">
-      <li><b>EIN STÜCK SICHERHEITSGEFÜHL FÜR ZU HAUSE</b> – Christbaumschmuck in Form des bekannten Beton-Sperrblocks vom Weihnachtsmarkt, mit Pinselschrift „#wirschaffendas“. Der Hingucker am Baum und das Gesprächsthema am Festtagstisch.</li>
-      <li><b>DETAILGETREU</b> – glatter Block mit zwei durchgehenden Staplertaschen, Transportankern oben, Messingöse und vormontiertem goldenem Satinband (Schlaufe 12 cm). Sofort aufhängbar.</li>
-      <li><b>36 VARIANTEN</b> – Gold, Silber oder Rot · glänzend oder matt · mit oder ohne Schnee · Größe S (5 cm), M (7 cm) oder L (9 cm). Jede Packung enthält eine Variante.</li>
-      <li><b>FESTLICH VERPACKT</b> – einzeln in der Geschenkschachtel „Die Einzelmaßnahme“ mit Sichtfenster, ab 10 Stück in der 10er-Schachtel „Sicherheitskonzept für Ihr Wohnzimmer“. Ideal zum Wichteln, für Weihnachtsfeiern, Vereine und Firmen; ab 100 Stück mit persönlicher Gravur.</li>
-      <li><b>HINWEIS</b> – Dekoartikel für Erwachsene, kein Spielzeug. Enthält Kleinteile – nicht für Kinder unter 3 Jahren. Satire-Kollektion von Ebbing Project.</li>
+      <li><b>EIN STÜCK SICHERHEITSGEFÜHL FÜR ZU HAUSE</b> – Draußen steht er vor den Weihnachtsmärkten, jetzt hängt er am Baum. Der Christbaumpoller ist der Sperrblock, den jeder kennt, im Kleinformat, mit Pinselschrift #wirschaffendas.</li>
+      <li><b>DETAILS WIE BEIM GROSSEN</b> – Unten zwei durchgehende Staplertaschen, oben die Transportanker. Dazu Messingöse und goldenes Satinband mit 12 cm Schlaufe, schon montiert. Auspacken, aufhängen, fertig.</li>
+      <li><b>DREI GRÖSSEN, ZWÖLF LOOKS</b> – Gold, Silber oder Rot, glänzend oder matt, mit oder ohne Schnee. S (5 cm) für die Zweigspitzen, M (7 cm) für die Mitte, L (9 cm) für einen kräftigen Ast weiter innen. Eine Variante je Packung.</li>
+      <li><b>VERPACKT WIE EINE ORDENTLICHE MASSNAHME</b> – Einzeln in der Schachtel „Die Einzelmaßnahme“ mit Sichtfenster. Ab 10 Stück im „Sicherheitskonzept für Ihr Wohnzimmer“, zehnteilig, behördlich nicht abgenommen. Gut zum Wichteln und für die Weihnachtsfeier.</li>
+      <li><b>DEKO, KEIN SPIELZEUG</b> – Für Erwachsene. Enthält Kleinteile, nicht für Kinder unter 3 Jahren. Nicht in der Nähe von offenem Feuer oder brennenden Kerzen aufhängen. Material und Gewicht nach Freigabe der Muster.</li>
     </ul>
   </div>
   <!-- Kaufbox -->
@@ -193,17 +195,17 @@ table.info td{padding:7px 12px;border-bottom:1px solid #e7e7e7}
 <!-- Markeninhalt -->
 <div class="sec aplus">
   <h2>Produktbeschreibung des Herstellers</h2>
-  <div class="hero"><img src="img/listing/am-baum.webp" alt="Christbaumpoller am Weihnachtsbaum" style="max-height:520px;object-fit:cover;object-position:center 40%"><div class="cap"><h3>Was uns draußen schützt,<br>ist längst Tradition.</h3><p>Jetzt auch für Ihren Baum. #wirschaffendas</p></div></div>
+  <div class="hero"><img src="img/listing/aplus-kopf.webp" alt="Christbaumpoller am Weihnachtsbaum" style="aspect-ratio:970/600;object-fit:cover"><div class="cap"><h3>Was uns draußen schützt,<br>ist längst Tradition.</h3><p>Jetzt auch für Ihren Baum. #wirschaffendas</p></div></div>
   <div class="cols">
-    <div><img src="img/listing/staplertaschen.webp" alt="Staplertaschen"><h4>Mit echten Staplertaschen</h4><p>Zwei durchgehende Taschen an der Unterseite – das Detail, an dem jeder den Sperrblock sofort erkennt.</p></div>
-    <div><img src="img/listing/verpackung-einzel.webp" alt="Einzelschachtel"><h4>„Die Einzelmaßnahme“</h4><p>Geschenkschachtel mit Kirchenfenster und Kopfkarte. „Fürchtet euch nicht.“ – Lukas 2,10. Siegel: geprüft nach Gefühl.</p></div>
-    <div><img src="img/listing/verpackung-10er.webp" alt="10er-Schachtel geöffnet"><h4>„Sicherheitskonzept für Ihr Wohnzimmer“</h4><p>10-teilig, behördlich nicht abgenommen. Zehn Poller in zwei Reihen – die Zufahrtssperre für unter den Baum.</p></div>
+    <div><img src="img/listing/staplertaschen.webp" alt="Staplertaschen"><h4>Mit echten Staplertaschen</h4><p>Zwei durchgehende Taschen an der Unterseite. Das Detail, an dem jeder den Block sofort erkennt.</p></div>
+    <div><img src="img/listing/verpackung-einzel.webp" alt="Einzelschachtel"><h4>„Die Einzelmaßnahme“</h4><p>Die Geschenkschachtel mit Kirchenfenster, Kopfkarte und Sichtfenster. Ein Poller, festlich verpackt.</p></div>
+    <div><img src="img/listing/verpackung-10er.webp" alt="10er-Schachtel geöffnet"><h4>„Sicherheitskonzept für Ihr Wohnzimmer“</h4><p>Zehnteilig, behördlich nicht abgenommen. Zehn Poller in zwei Reihen, die Zufahrtssperre für unter den Baum.</p></div>
   </div>
   <div class="cols" style="grid-template-columns:1fr 2fr;align-items:center">
     <div><img src="img/listing/groessen.webp" alt="Größen S M L"></div>
     <div><h4>Drei Größen für jeden Ast</h4>
       <table class="cmp" id="cmp"></table>
-      <p class="note" style="margin-top:8px">Preise je Packung inkl. MwSt. Ab 100 Stück mit persönlicher Gravur oder eigenem Schriftzug. <b>Tipp:</b> Preis anklicken – Größe und Packung werden oben übernommen.</p></div>
+      <p style="margin-top:6px">S mit 5 cm für die Zweigspitzen, M mit 7 cm für die Mitte, L mit 9 cm für einen kräftigen Ast weiter innen. Alle mit Messingöse und goldenem Satinband.</p></div>
   </div>
 </div>
 
@@ -218,8 +220,7 @@ table.info td{padding:7px 12px;border-bottom:1px solid #e7e7e7}
 <div class="sec qa" id="fragen"><h2>Fragen und Antworten</h2>
   <details><summary>Wie groß ist der Poller?</summary><p>S ist 5 cm lang, M 7 cm, L 9 cm. Genaue Maße stehen in der Tabelle oben. S und M hängen an jedem normalen Zweig, L lieber an einen kräftigen Ast weiter innen.</p></details>
   <details><summary>Sind in einer Packung verschiedene Farben?</summary><p>Nein. Jede Packung enthält eine Variante. Wer mischen will, bestellt mehrere Packungen.</p></details>
-  <details><summary>Wie wird verpackt?</summary><p>Einzeln in der Schachtel „Die Einzelmaßnahme“. Ab 10 Stück in der 10er-Schachtel „Sicherheitskonzept für Ihr Wohnzimmer“, 20, 30 und 100 Stück kommen in zwei, drei und zehn 10er-Schachteln.</p></details>
-  <details><summary>Was heißt „inkl. Gravur“ beim 100er?</summary><p>Ab 100 Stück kommt Ihr eigener Schriftzug statt #wirschaffendas drauf – für Verein, Firma oder Weihnachtsfeier. Den Text stimmen wir vorher mit Ihnen ab.</p></details>
+  <details><summary>Wie wird verpackt?</summary><p>Einzeln in der Schachtel „Die Einzelmaßnahme“. Ab 10 Stück in der 10er-Schachtel „Sicherheitskonzept für Ihr Wohnzimmer“, 20 und 30 Stück kommen in zwei und drei 10er-Schachteln.</p></details>
   <details><summary>Woraus ist er und wie schwer?</summary><p>Material und genaues Gewicht folgen, sobald die Muster freigegeben sind. Höchstgewicht: S 12 g, M 30 g, L 55 g.</p></details>
   <details><summary>Ist das Spielzeug?</summary><p>Nein. Dekoration für Erwachsene. Enthält Kleinteile, nicht für Kinder unter 3 Jahren.</p></details>
 </div>
@@ -232,7 +233,8 @@ table.info td{padding:7px 12px;border-bottom:1px solid #e7e7e7}
 <script>
 const PR={S:{1:3.99,10:24.99,20:39.99,30:49.99,100:149.99},M:{1:4.99,10:28.99,20:46.99,30:57.99,100:174.99},L:{1:5.99,10:32.99,20:53.99,30:66.99,100:199.99}};
 const GR={S:{cm:5,mm:'50 × 25 × 23 mm',g:'max. 12 g'},M:{cm:7,mm:'70 × 35 × 32 mm',g:'max. 30 g'},L:{cm:9,mm:'90 × 45 × 41 mm',g:'max. 55 g'}};
-const PKS=[1,10,20,30,100];
+const PKS=[1,10,20,30];   // 100 mit Gravur nur über die eigene Seite, nicht im Marktplatz
+const HL={"1": "Christbaumschmuck im Sperrblock-Look mit Staplertaschen, Messingöse und Satinband, in der Einzelschachtel", "10": "Christbaumschmuck im Sperrblock-Look, 10 gleiche Anhänger mit Messingöse und Satinband in der 10er-Schachtel", "20": "Christbaumschmuck im Sperrblock-Look, 20 gleiche Anhänger mit Messingöse und Satinband in zwei 10er-Schachteln", "30": "Christbaumschmuck im Sperrblock-Look, 30 gleiche Anhänger mit Messingöse und Satinband in drei 10er-Schachteln"};
 const FARBEN=[];['gold','silber','rot'].forEach(f=>['glanz','matt'].forEach(o=>['','-schnee'].forEach(s=>FARBEN.push(f+'-'+o+s))));
 const NAME=k=>{const [f,o,s]=k.split('-');return ({gold:'Gold',silber:'Silber',rot:'Rot'})[f]+' '+(o==='glanz'?'glänzend':'matt')+(s?' mit Schnee':'')};
 const CODE=k=>{const [f,o,s]=k.split('-');return 'CBP-'+({gold:'GO',silber:'SI',rot:'RD'})[f]+'-'+(o==='glanz'?'GL':'MT')+'-'+(s?'S1':'S0')};
@@ -243,8 +245,8 @@ const eur=v=>v.toFixed(2).replace('.',',')+' €';
 const prHTML=v=>{const [w,c]=v.toFixed(2).split('.');return `<span class="pr"><span class="w">${w}</span><sup>,${c} €</sup></span>`};
 const pkName=n=>n===1?'1 Stück (Einzelschachtel)':n+' Stück ('+(n/10)+' × 10er-Schachtel)';
 let gi=0,peek=null;
-const CAP=['Hauptbild','Die drei Größen','Staplertaschen','Am Baum','Einzelschachtel','10er-Schachtel'];
-function gallery(){return ['img/listing/main-'+st.farbe+'.webp','img/listing/groessen.webp','img/listing/staplertaschen.webp','img/listing/am-baum.webp','img/listing/verpackung-einzel.webp','img/listing/verpackung-10er.webp']}
+const CAP=['Hauptbild','Die drei Größen','Staplertaschen','Am Baum','Einzelschachtel','10er-Schachtel','Gold am Baum','Edel in Silber','Zufahrtssperre vor den Geschenken'];
+function gallery(){return ['img/listing/main-'+st.farbe+'.webp','img/listing/groessen.webp','img/listing/staplertaschen.webp','img/listing/stimmung-1.webp','img/listing/verpackung-einzel.webp','img/listing/verpackung-10er.webp','img/listing/stimmung-2.webp','img/listing/stimmung-3.webp','img/listing/stimmung-4.webp']}
 function showBig(){const g=gallery();$('big').src=peek||g[gi];$('big').alt=CAP[gi];$('gcnt').textContent=(gi+1)+' / '+g.length;
   document.querySelectorAll('#thumbs img').forEach((t,i)=>t.classList.toggle('on',i===gi))}
 function go(d){const n=gallery().length;gi=(gi+d+n)%n;peek=null;showBig();if($('lb').classList.contains('open'))lbShow()}
@@ -254,10 +256,11 @@ function render(){
   document.querySelectorAll('#thumbs img').forEach(t=>t.onmouseenter=t.onclick=()=>{gi=+t.dataset.i;peek=null;showBig()});
   showBig();
   const pk=st.pk===1?'Einzelstück':st.pk+'er-Set';
-  $('title').textContent=`Christbaumpoller – Weihnachtsbaum-Anhänger in Form eines Beton-Sperrblocks, #wirschaffendas, ${NAME(st.farbe)}, Größe ${st.gr} (${GR[st.gr].cm} cm), ${pk} – lustiger Christbaumschmuck mit Messingöse und Satinband`;
+  $('title').textContent=`Christbaumpoller Baumschmuck, ${NAME(st.farbe)}, ${st.gr} ${GR[st.gr].cm} cm, ${st.pk} Stück`;   // Muster Kind-Artikel, max. 75 Zeichen
+  $('hlt').textContent=HL[st.pk];
   const spar=st.pk>1?Math.round((1-p/(PR[st.gr][1]*st.pk))*100):0;
   $('price').innerHTML=(spar?`<span class="pct">-${spar} %</span>`:'')+prHTML(p);
-  $('unit').innerHTML='('+eur(p/st.pk)+' / Stück) inkl. MwSt.'+(st.pk===100?' · inkl. persönlicher Gravur':'')+(spar?`<div class="ref">Einzeln gekauft:<s>${eur(PR[st.gr][1]*st.pk)}</s></div>`:'');
+  $('unit').innerHTML='('+eur(p/st.pk)+' / Stück) inkl. MwSt.'+(spar?`<div class="ref">Einzeln gekauft:<s>${eur(PR[st.gr][1]*st.pk)}</s></div>`:'');
   $('bprice').innerHTML=prHTML(p*q);
   $('btot').textContent=(q>1?q+' × '+eur(p)+' · ':'')+'inkl. MwSt. · Versandkosten: Angaben folgen';
   $('vFarbe').textContent=NAME(st.farbe);
@@ -272,9 +275,8 @@ function render(){
     b.onmouseleave=()=>{peek=null;$('vFarbe').textContent=NAME(st.farbe);showBig()}});
   document.querySelectorAll('#swGr button').forEach(b=>b.onclick=()=>{st.gr=b.dataset.v;render()});
   document.querySelectorAll('#swPk button').forEach(b=>b.onclick=()=>{st.pk=+b.dataset.v;render()});
-  $('cmp').innerHTML='<tr><th>Größe</th><th>Maße</th><th>1 Stück</th><th>10er</th><th>20er</th><th>30er</th><th>100 inkl. Gravur</th></tr>'+
-    ['S','M','L'].map(k=>`<tr><td><b>${k}</b></td><td>${GR[k].mm}</td>${PKS.map(n=>`<td class="p${k===st.gr&&n===st.pk?' sel':''}" data-g="${k}" data-n="${n}" title="übernehmen">${eur(PR[k][n])}</td>`).join('')}</tr>`).join('');
-  document.querySelectorAll('#cmp td.p').forEach(td=>td.onclick=()=>{st.gr=td.dataset.g;st.pk=+td.dataset.n;render();toast(`Übernommen: Größe ${st.gr}, ${pkName(st.pk)}`);window.scrollTo({top:0,behavior:'smooth'})});
+  $('cmp').innerHTML='<tr><th></th><th>S</th><th>M</th><th>L</th></tr>'+   // Markeninhalt: ohne Preise
+    [['Länge',k=>GR[k].cm+' cm'],['Maße',k=>GR[k].mm],['Höchstgewicht',k=>GR[k].g],['Aufhängung',k=>'Messingöse, Satinband'],['Verpackung',k=>'Einzelschachtel / 10er']].map(r=>`<tr><td><b>${r[0]}</b></td>${['S','M','L'].map(k=>`<td class="${k===st.gr?'sel':''}">${r[1](k)}</td>`).join('')}</tr>`).join('');
   const rows=[['Marke','Christbaumpoller'],['Hersteller','Ebbing Project GmbH'],['Modellnummer',CODE(st.farbe)+'-'+st.gr],['Farbe',NAME(st.farbe)],['Größe',st.gr+' – '+GR[st.gr].mm],
     ['Gewicht',GR[st.gr].g+' (inkl. Öse und Band)'],['Packungsgröße',st.pk===1?'1 Stück':st.pk+' Stück'],['Material','folgt (Muster in Prüfung)'],['Anlass','Weihnachten, Advent, Wichteln, Firmenfeier'],
     ['Aufhängung','Messingöse, goldenes Satinband 3 mm, Schlaufe 12 cm'],['EAN','folgt'],['Herkunftsland','folgt'],['Erhältlich ab','Vorbestellung']];
